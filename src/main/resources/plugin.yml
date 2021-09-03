@@ -4,21 +4,9 @@ main: net.tiam.addictzone_features.MainClass
 api-version: 1.16
 author: req_Ticasch
 commands:
-  eco:
-    aliases: [ecoadmin, economyadmin]
-  pay:
-    aliases: [bezahlen]
-  bankadmin:
-    aliases: [adminbank]
-  limit:
-    aliases: [limits, economylimit, economylimits]
-  setlimit:
-    aliases: [setlimits, setecolimit, setecolimits, seteconomylimit, seteconomylimits]
-  economy:
   gift:
     aliases: [rank]
   msg:
-  Limit:
   AddictZone:
   cc:
   gm:
