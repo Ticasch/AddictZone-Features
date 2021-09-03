@@ -7,7 +7,6 @@ import net.tiam.addictzone_features.MainClass;
 import net.tiam.addictzone_features.commands.VanishCMD;
 import net.tiam.addictzone_features.managers.PrefixColorGroupManager;
 import net.tiam.addictzone_features.managers.PrefixColorManager;
-import net.tiam.addictzone_features.managers.PrimaryGroupManager;
 import net.tiam.addictzone_features.managers.TablistManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
