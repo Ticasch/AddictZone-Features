@@ -35,5 +35,5 @@ commands:
   sun:
     aliases: [sonne]
   rain:
-    aliases: [regen, strum]
+    aliases: [regen, strum, storm]
 
