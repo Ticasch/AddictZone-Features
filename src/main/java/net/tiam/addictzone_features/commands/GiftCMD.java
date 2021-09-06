@@ -5,6 +5,8 @@ import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.group.Group;
 import net.luckperms.api.model.user.User;
 import net.tiam.addictzone_features.MainClass;
+import net.tiam.addictzone_features.managers.PrefixColorGroupManager;
+import net.tiam.addictzone_features.managers.PrefixColorManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -49,19 +51,20 @@ public class GiftCMD implements CommandExecutor {
                                 p.sendMessage(prefix + "Du hast keine Rechte diese Gruppe zu vergeben.");
                             } else {
                                 String groupNameMetaPrefix = luckPerms.getGroupManager().getGroup(groupName).getCachedData().getMetaData().getPrefix();
+                                String color = new PrefixColorGroupManager(groupName).getTabGroupColor();
                                 p.sendMessage(line);
                                 p.sendMessage("");
-                                p.sendMessage(prefix + "Du hast dem Spieler §b" + target.getName() + " §7den Rang " + groupNameMetaPrefix.replace('&', '§') + " §7für §b7 Tag§7(§be§7) §7gegeben.");
+                                p.sendMessage(prefix + "Du hast dem Spieler §b" + target.getName() + " §7den Rang §" + color + groupNameMetaPrefix.replace('&', '§') + " §7für §b7 Tag§7(§be§7) §7gegeben.");
                                 p.sendMessage("");
                                 p.sendMessage(line);
                                 target.sendMessage(line);
                                 target.sendMessage("");
-                                target.sendMessage(prefix + "Der Spieler §b" + gifter + " §7hat dir den Rang " + groupNameMetaPrefix.replace('&', '§') + " §7für §b7 Tag§7(§be§7) §7gegeben.");
+                                target.sendMessage(prefix + "Der Spieler §b" + gifter + " §7hat dir den Rang §" + color + groupNameMetaPrefix.replace('&', '§') + " §7für §b7 Tag§7(§be§7) §7gegeben.");
                                 target.sendMessage("");
                                 target.sendMessage(line);
                                 for (Player all : Bukkit.getOnlinePlayers()) {
                                     if (all.hasPermission(servername + ".gift.notify")) {
-                                        all.sendMessage(prefix + "Der Spieler §b" + gifter + " §7hat§b " + target.getName() + " §7den Rang " + groupNameMetaPrefix.replace('&', '§') + " §7für §b7 Tag§7(§be§7) §7gegeben.");
+                                        all.sendMessage(prefix + "Der Spieler §b" + gifter + " §7hat§b " + target.getName() + " §7den Rang §" + color + groupNameMetaPrefix.replace('&', '§') + " §7für §b7 Tag§7(§be§7) §7gegeben.");
                                     }
                                 }
                                 Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + target.getName() + " parent addtemp " + groupName + " " + 86400*7 + "s");
@@ -87,19 +90,20 @@ public class GiftCMD implements CommandExecutor {
                             p.sendMessage(prefix + "Du kannst diese Gruppe nur maximal §b " + permittedRankingTime + " Tage §7vergeben.");
                         } else {
                             String groupNameMetaPrefix = luckPerms.getGroupManager().getGroup(groupName).getCachedData().getMetaData().getPrefix();
+                            String color = new PrefixColorGroupManager(groupName).getTabGroupColor();
                             p.sendMessage(line);
                             p.sendMessage("");
-                            p.sendMessage(prefix + "Du hast dem Spieler §b" + target.getName() + " §7den Rang " + groupNameMetaPrefix.replace('&', '§') + " §7für §b" + rankingTime + " Tag§7(§be§7) §7gegeben.");
+                            p.sendMessage(prefix + "Du hast dem Spieler §b" + target.getName() + " §7den Rang §" + color + groupNameMetaPrefix.replace('&', '§') + " §7für §b" + rankingTime + " Tag§7(§be§7) §7gegeben.");
                             p.sendMessage("");
                             p.sendMessage(line);
                             target.sendMessage(line);
                             target.sendMessage("");
-                            target.sendMessage(prefix + "Der Spieler §b" + gifter + " §7hat dir den Rang " + groupNameMetaPrefix.replace('&', '§') + " §7für §b" + rankingTime + " Tag§7(§be§7) §7gegeben.");
+                            target.sendMessage(prefix + "Der Spieler §b" + gifter + " §7hat dir den Rang §" + color + groupNameMetaPrefix.replace('&', '§') + " §7für §b" + rankingTime + " Tag§7(§be§7) §7gegeben.");
                             target.sendMessage("");
                             target.sendMessage(line);
                             for (Player all : Bukkit.getOnlinePlayers()) {
                                 if (all.hasPermission(servername + ".Gift.Notify")) {
-                                    all.sendMessage(prefix + "Der Spieler §b" + gifter + " §7hat§b " + target.getName() + " §7den Rang " + groupNameMetaPrefix.replace('&', '§') + " §7für §b" + rankingTime + " Tag§7(§be§7) §7gegeben.");
+                                    all.sendMessage(prefix + "Der Spieler §b" + gifter + " §7hat§b " + target.getName() + " §7den Rang §" + color + groupNameMetaPrefix.replace('&', '§') + " §7für §b" + rankingTime + " Tag§7(§be§7) §7gegeben.");
                                 }
                             }
                             Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + target.getName() + " parent addtemp " + groupName + " " + newRankingTime + "s");
