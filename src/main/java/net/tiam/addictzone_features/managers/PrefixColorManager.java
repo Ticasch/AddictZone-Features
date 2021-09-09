@@ -1,8 +1,6 @@
 package net.tiam.addictzone_features.managers;
 
-import net.tiam.addictzone_features.util.FileBuilder;
-
-import java.util.UUID;
+import net.tiam.addictzone_features.utilities.FileBuilder;
 
 public class PrefixColorManager {
     private String uuid;

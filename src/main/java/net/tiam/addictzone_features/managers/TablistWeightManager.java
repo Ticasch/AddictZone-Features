@@ -1,6 +1,6 @@
 package net.tiam.addictzone_features.managers;
 
-import net.tiam.addictzone_features.util.FileBuilder;
+import net.tiam.addictzone_features.utilities.FileBuilder;
 
 public class TablistWeightManager {
     private String groupName;

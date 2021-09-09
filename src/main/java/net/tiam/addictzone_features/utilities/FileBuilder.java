@@ -1,4 +1,4 @@
-package net.tiam.addictzone_features.util;
+package net.tiam.addictzone_features.utilities;
 
 import java.io.File;
 import java.io.IOException;

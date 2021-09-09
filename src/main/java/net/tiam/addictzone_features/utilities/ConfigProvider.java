@@ -1,4 +1,4 @@
-package net.tiam.addictzone_features.util;
+package net.tiam.addictzone_features.utilities;
 
 public class ConfigProvider {
     private final FileBuilder fileBuilder = new FileBuilder("plugins/Citybuild", "config.yml");

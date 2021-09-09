@@ -1,6 +1,6 @@
 package net.tiam.addictzone_features.commands;
 
-import net.tiam.addictzone_features.util.ItemBuilder;
+import net.tiam.addictzone_features.utilities.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

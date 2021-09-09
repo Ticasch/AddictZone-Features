@@ -8,10 +8,9 @@ import net.tiam.addictzone_features.commands.VanishCMD;
 import net.tiam.addictzone_features.managers.PrefixColorGroupManager;
 import net.tiam.addictzone_features.managers.PrefixColorManager;
 import net.tiam.addictzone_features.managers.TablistManager;
-import net.tiam.addictzone_features.util.ItemBuilder;
+import net.tiam.addictzone_features.utilities.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,7 +19,6 @@ import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
-import org.jetbrains.annotations.NotNull;
 
 import static org.bukkit.enchantments.Enchantment.*;
 
