@@ -76,6 +76,14 @@ public final class MainClass extends JavaPlugin {
         getCommand("StartInv").setExecutor(new StartInvCMD());
         getCommand("invsee").setExecutor(new InvseeCMD());
         getCommand("ec").setExecutor(new EcCMD());
+        getCommand("tpaaccept").setExecutor(new TpaAcceptCMD());
+        getCommand("Tpdeny").setExecutor(new TpDenyCMD());
+        getCommand("Tpacancel").setExecutor(new TpaCancelCMD());
+        getCommand("msgtoggle").setExecutor(new MsgToggleCMD());
+        getCommand("Tptoggle").setExecutor(new TpaToggleCMD());
+        getCommand("reply").setExecutor(new ReplyCMD());
+        getCommand("Tpa").setExecutor(new TpaCMD(this));
+        getCommand("tpahere").setExecutor(new TpahereCMD(this));
         Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessListener(), this);
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);

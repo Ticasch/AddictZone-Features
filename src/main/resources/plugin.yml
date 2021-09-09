@@ -43,4 +43,16 @@ commands:
   ec:
     aliases: [enderchest, echest]
   invsee:
+  tpa:
+  tpahere:
+  tptoggle:
+    aliases: [tpatoggle]
+  tpdeny:
+    aliases: [tpadeny]
+  tpaaccept:
+    aliases: [tpaccept]
+  tpacancel:
+    aliases: [tpcancel]
+  reply:
+    aliases: [r]
 
