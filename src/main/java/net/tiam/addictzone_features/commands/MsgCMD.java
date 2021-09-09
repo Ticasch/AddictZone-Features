@@ -58,7 +58,7 @@ public class MsgCMD implements CommandExecutor {
                 p.sendMessage(prefix + "§7[§bIch §8➜ §b" + target.getName() + "§7] " + msg);
                 target.sendMessage(prefix + "§7[§b" + p.getName() + " §8➜ §bMir§7] " + msg);
         } else {
-            p.sendMessage(prefix + "§7Benutze: §b/Msg §7<§bSpieler§7>");
+            p.sendMessage(prefix + "§7Benutze: §b/Msg §7<§bSpieler§7> <§bText§7>");
         }
         return false;
     }

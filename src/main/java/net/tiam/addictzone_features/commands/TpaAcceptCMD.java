@@ -40,7 +40,7 @@ public class TpaAcceptCMD implements CommandExecutor {
                 player.sendMessage(prefix + "Dieser Spieler hat dir keine §bTpa§7/§bTpahere §7geschickt.");
             }
         } else {
-            player.sendMessage(prefix + "Benutze: §b/Tpaccept <Spieler>");
+            player.sendMessage(prefix + "Benutze: §b/Tpaccept §7<§bSpieler§7>");
         }
         return false;
     }

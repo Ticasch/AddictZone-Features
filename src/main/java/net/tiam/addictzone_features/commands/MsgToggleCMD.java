@@ -16,15 +16,19 @@ public class MsgToggleCMD implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player player = (Player)sender;
         if (player.hasPermission(servername + ".msgtoggle")) {
-            if (new MsgToggleManager(player.getUniqueId().toString()).getToggledMsg() == true) {
-                new MsgToggleManager(player.getUniqueId().toString()).setToggledMsg(false);
-                player.sendMessage(prefix + "Du hast deine Nachrichten aktiviert.");
+            if (args.length == 0) {
+                if (new MsgToggleManager(player.getUniqueId().toString()).getToggledMsg() == true) {
+                    new MsgToggleManager(player.getUniqueId().toString()).setToggledMsg(false);
+                    player.sendMessage(prefix + "Du hast deine Nachrichten aktiviert.");
+                } else {
+                    new MsgToggleManager(player.getUniqueId().toString()).setToggledMsg(true);
+                    player.sendMessage(prefix + "Du hast deine Nachrichten deaktiviert.");
+                }
             } else {
-                new MsgToggleManager(player.getUniqueId().toString()).setToggledMsg(true);
-                player.sendMessage(prefix + "Du hast deine Nachrichten deaktiviert.");
+                player.sendMessage(noperm);
             }
         } else {
-            player.sendMessage(noperm);
+            player.sendMessage(prefix + "Benutze: §b/Msgtoggle");
         }
         return false;
     }
