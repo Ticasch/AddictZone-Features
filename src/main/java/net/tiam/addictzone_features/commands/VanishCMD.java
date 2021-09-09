@@ -70,7 +70,7 @@ public class VanishCMD implements CommandExecutor {
                     if (!VANISHED.contains(target)) {
                         String suffix;
                         String uuid = String.valueOf(player.getUniqueId());
-                        String prefixcolor = new PrefixColorManager(uuid).getTabColor();
+                        String prefixcolor = new PrefixColorManager(target.getUniqueId().toString()).getTabColor();
                         VANISHED.add(target);
                         String prefix = "§" + prefixcolor + this.luckPerms.getUserManager().getUser(target.getUniqueId()).getCachedData().getMetaData().getPrefix().replace("&", "§") + " §7| ";
                         if (this.luckPerms.getUserManager().getUser(player.getUniqueId()).getCachedData().getMetaData().getSuffix() == null) {

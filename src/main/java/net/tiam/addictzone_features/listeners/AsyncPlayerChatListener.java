@@ -19,6 +19,12 @@ public class AsyncPlayerChatListener implements Listener {
     String servername = MainClass.ServerName;
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
+        if (MainClass.getClosed().booleanValue() &&
+                !event.getPlayer().hasPermission(servername + ".chat.chatlock.bypass")) {
+            event.getPlayer().sendMessage(prefix + "Der chat ist deaktiviert." );
+                    event.setCancelled(true);
+            return;
+        }
         String message = event.getMessage();
         message = message.replace("%", "%%");
         if (event.getPlayer().hasPermission(servername + ".chat.color")) {

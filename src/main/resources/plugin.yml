@@ -36,4 +36,11 @@ commands:
     aliases: [sonne]
   rain:
     aliases: [regen, strum, storm]
+  cl:
+    aliases: [chatlock]
+  startinv:
+    aliases: [start, setstartinv, setstartinventory]
+  ec:
+    aliases: [enderchest, echest]
+  invsee:
 

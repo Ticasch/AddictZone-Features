@@ -1,6 +1,7 @@
 package net.tiam.addictzone_features.commands;
 
 import net.tiam.addictzone_features.MainClass;
+import net.tiam.addictzone_features.managers.MsgToggleManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -27,6 +28,10 @@ public class MsgCMD implements CommandExecutor {
             }
             if (p == target) {
                 p.sendMessage(prefix + "§7Du kannst dir selber keine nachrichten senden.");
+                return true;
+            }
+            if (new MsgToggleManager(p.getUniqueId().toString()).getToggledMsg() == true && !p.hasPermission(servername + ".msgtoggle.bypass")) {
+                p.sendMessage(prefix + "Dieser Spieler hat seine Nachrichten dekativiert.");
                 return true;
             }
             String msg = "";

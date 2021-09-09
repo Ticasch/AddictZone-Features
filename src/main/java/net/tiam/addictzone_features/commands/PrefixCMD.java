@@ -61,7 +61,7 @@ public class PrefixCMD implements CommandExecutor {
                         }
                     new PrefixColorManager(target.getUniqueId().toString()).setTabColor(color);
                         target.sendMessage(mprefix + "Deine Prefixfarbe wurde von §B" + SENDER + " §7zu '§b" + color + "§7' geändert.");
-                        c.sendMessage(mprefix + "Du hast die Prefixfarbe von §b" + target.getName() + " §7zu '§7" + color + "§7' geändert.");
+                        c.sendMessage(mprefix + "Du hast die Prefixfarbe von §b" + target.getName() + " §7zu '§b" + color + "§7' geändert.");
                     }
                 } else {
                     c.sendMessage(mprefix + "Benutze: §b/Prefix §7<§bFarbcode§7>");
