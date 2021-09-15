@@ -84,7 +84,10 @@ public final class MainClass extends JavaPlugin {
         getCommand("reply").setExecutor(new ReplyCMD());
         getCommand("Tpa").setExecutor(new TpaCMD(this));
         getCommand("tpahere").setExecutor(new TpahereCMD(this));
-        Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
+        getCommand("einfachemmy").setExecutor(new EinfachEmmyCMD());
+        getCommand("Spawn").setExecutor(new SpawnCMD());
+        getCommand("SetSpawn").setExecutor(new SetSpawnCMD());
+       // Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessListener(), this);
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);
         Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
@@ -93,6 +96,13 @@ public final class MainClass extends JavaPlugin {
                 (new TablistManager(all)).updateIfNecessary();
         },0L, 60L);
     }
+
+
+    //- Jan bei mir/bansystem ausfall
+    // items gelagert
+    // geld transferiert
+    //marcel -> ts
+    //unban klara und felix, emmy war dabei
 
     public static MainClass getPlugin() {
         return plugin;

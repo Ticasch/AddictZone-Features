@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
+
+import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -41,6 +43,10 @@ public class FileBuilder {
 
     public String getString(String ValuePth) {
         return this.c.getString(ValuePth);
+    }
+
+    public Location getLocation(String warp) {
+        return this.c.getLocation(warp);
     }
 
     public boolean getBoolean(String ValuePth) {

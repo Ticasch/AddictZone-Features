@@ -56,4 +56,8 @@ commands:
   reply:
     aliases: [r]
   msgtoggle:
+  einfachemmy:
+    aliases: [emmy]
+  spawn:
+  setspawn:
 

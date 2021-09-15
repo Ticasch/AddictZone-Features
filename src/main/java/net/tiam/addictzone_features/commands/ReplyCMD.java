@@ -36,8 +36,8 @@ public class ReplyCMD implements CommandExecutor {
             } else if (player.hasPermission(servername + ".msg.color")) {
                 message = ChatColor.translateAlternateColorCodes('&', message).replace("&f", "");
             }
-            player.sendMessage(prefix + "§8[§bIch §8➜ §b" + target.getName() + "§8] §7" + message);
-                    target.sendMessage(prefix + "§8[§bIch §8➜ §b" + player.getName() + "§8] §7" + message);
+            player.sendMessage(prefix + "§7[§bIch §8➜ §b" + target.getName() + "§7] §7" + message);
+                    target.sendMessage(prefix + "§7[§bIch §8➜ §b" + player.getName() + "§7] §7" + message);
         } else {
             player.sendMessage(prefix + "Benutze: §b/r §7<§bText§7>");
         }

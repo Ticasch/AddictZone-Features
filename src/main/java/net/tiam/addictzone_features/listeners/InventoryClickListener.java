@@ -17,8 +17,10 @@ public class InventoryClickListener implements Listener {
     @EventHandler
     public void onInvClick(InventoryClickEvent event) {
         Player player = (Player)event.getWhoClicked();
-        if (InvseeCMD.interact == false) {
-            event.setCancelled(true);
+        InventoryView v = player.getOpenInventory();
+        if (v.getTopInventory() != null && v.getTopInventory().getSize() == 36)
+            if (!player.hasPermission(servername + ".invsee.interact")) {
+                event.setCancelled(true);
         } else {
             event.setCancelled(false);
         }
@@ -26,18 +28,18 @@ public class InventoryClickListener implements Listener {
     @EventHandler
     public void onEcClick(InventoryClickEvent event) {
         Player player = (Player)event.getWhoClicked();
-        if (EcCMD.uuid.contains(player.getUniqueId().toString())) {
-            event.setCancelled(true);
-        } else {
-            event.setCancelled(false);
-        }
+        InventoryView v = player.getOpenInventory();
+        if (v.getTopInventory() != null && v.getTopInventory().getSize() == 27)
+            if (!player.hasPermission(servername + ".ec.interact")) {
+                event.setCancelled(true);
+            } else {
+                event.setCancelled(false);
+            }
     }
 
     @EventHandler
     public void onInvClose(InventoryCloseEvent event) {
         Player player = (Player)event.getPlayer();
-        if (InvseeCMD.uuid.contains(player.getUniqueId().toString()))
-            InvseeCMD.uuid.remove(player.getUniqueId().toString());
     }
 
     @EventHandler
