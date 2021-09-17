@@ -21,22 +21,6 @@ public class MathCMD implements CommandExecutor {
             if (c.hasPermission(servername + "math.binary")) {
                 if (args.length == 2) {
                     if (args[0].equalsIgnoreCase("bin")) {
-                        String output = "";
-                        input = Integer.parseInt(args[1]);
-                        int dezZahl = input;
-                        int anzahlStellen = 0;
-                        int dezZahlZwei = dezZahl;
-                        while (dezZahlZwei != 0) {
-                            dezZahlZwei = dezZahlZwei / 2;
-                            anzahlStellen++;
-                        }
-                        int zahlen[] = new int[anzahlStellen];
-                        for (int i = 0; i < anzahlStellen; i++) {
-                            zahlen[i] = dezZahl % 2;
-                            dezZahl = dezZahl / 2;
-                        }
-                        for (int i = anzahlStellen - 1; i >= 0; i--)
-                            output = output + zahlen[i];
                             c.sendMessage(prefix + "Die Dezimalzahlrzahl §b" + input + " §7ist binär: §b" + Integer.toBinaryString(input) + "§7.");
                     } else if (args[0].equalsIgnoreCase("Dez")) {
                         String output = "";
