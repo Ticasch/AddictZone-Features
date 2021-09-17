@@ -87,6 +87,8 @@ public final class MainClass extends JavaPlugin {
         getCommand("einfachemmy").setExecutor(new EinfachEmmyCMD());
         getCommand("Spawn").setExecutor(new SpawnCMD());
         getCommand("SetSpawn").setExecutor(new SetSpawnCMD());
+        getCommand("restart").setExecutor(new RestartCMD());
+        getCommand("math").setExecutor(new BinärCMD());
        // Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessListener(), this);
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);

@@ -77,7 +77,7 @@ public class TablistManager {
         } else {
             playerTeam = this.scoreboard.getTeam(teamName);
         }
-        playerTeam.setPrefix(prefix + " §7| ");
+        playerTeam.setPrefix(prefix + " §8| ");
         playerTeam.setSuffix(suffix);
         playerTeam.setColor(ChatColor.GRAY);
         playerTeam.addEntry(this.player.getName());

@@ -26,6 +26,8 @@ public class HealCMD implements CommandExecutor {
                 if (args.length == 0) {
                     c.sendMessage(prefix + "Du hast dich geheilt.");
                     ((Player) c).setHealth(20);
+                    ((Player) c).setFoodLevel(20);
+                    ((Player) c).setSaturation(20);
                 } else if (args.length == 1) {
                     if (!c.hasPermission(servername + ".heal.other")) {
                         c.sendMessage(prefix + "Du hast keine Rechte, andere Spieler zu heilen.");
@@ -38,6 +40,8 @@ public class HealCMD implements CommandExecutor {
                         c.sendMessage(prefix + "Du hast §b" + target.getName() + " §7geheilt.");
                         target.sendMessage(prefix + "Du wurdest von §b" + SENDER + " §7geheilt.");
                         target.setHealth(20);
+                        target.setFoodLevel(20);
+                        target.setSaturation(20);
                     }
                 } else {
                     c.sendMessage(prefix + "Benutze: §b/Heal §7<[§cOPTIONAL§7]§bSpieler§7>");

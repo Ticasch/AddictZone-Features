@@ -8,6 +8,7 @@ import net.tiam.addictzone_features.commands.VanishCMD;
 import net.tiam.addictzone_features.managers.PrefixColorGroupManager;
 import net.tiam.addictzone_features.managers.PrefixColorManager;
 import net.tiam.addictzone_features.managers.TablistManager;
+import net.tiam.addictzone_features.managers.WarpManager;
 import net.tiam.addictzone_features.utilities.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -46,7 +47,7 @@ public class JoinListener implements Listener {
             if (!VanishCMD.VANISHED.contains(player))
                 VanishCMD.VANISHED.add(player);
             String pcolor = new PrefixColorManager(uuid).getTabColor();
-            String prefix = "§" + pcolor + this.luckPerms.getUserManager().getUser(player.getUniqueId()).getCachedData().getMetaData().getPrefix().replace("&", "§") + " §7| ";
+            String prefix = "§" + pcolor + this.luckPerms.getUserManager().getUser(player.getUniqueId()).getCachedData().getMetaData().getPrefix().replace("&", "§") + " §8| ";
             if (this.luckPerms.getUserManager().getUser(player.getUniqueId()).getCachedData().getMetaData().getSuffix() == null) {
                 suffix = "";
             } else {
@@ -95,6 +96,7 @@ public class JoinListener implements Listener {
                 player.sendMessage(mprefix + "Willkommen auf §9§lAddictZone.net§7!");
                 player.sendMessage("");
                 player.sendMessage(MainClass.Line);
+                player.teleport(new WarpManager("Spawn").getWarp());
             });
     }
 

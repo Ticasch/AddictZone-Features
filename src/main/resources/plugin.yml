@@ -60,4 +60,7 @@ commands:
     aliases: [emmy]
   spawn:
   setspawn:
+  restart:
+    aliases: [stop]
+  math:
 
