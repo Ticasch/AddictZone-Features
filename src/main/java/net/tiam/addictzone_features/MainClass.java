@@ -3,16 +3,11 @@ package net.tiam.addictzone_features;
 import net.tiam.addictzone_features.commands.*;
 import net.tiam.addictzone_features.listeners.AsyncPlayerChatListener;
 import net.tiam.addictzone_features.listeners.CommandPreProcessListener;
-import net.tiam.addictzone_features.listeners.InventoryClickListener;
 import net.tiam.addictzone_features.listeners.JoinListener;
 import net.tiam.addictzone_features.managers.TablistManager;
 import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitScheduler;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -88,7 +83,7 @@ public final class MainClass extends JavaPlugin {
         getCommand("Spawn").setExecutor(new SpawnCMD());
         getCommand("SetSpawn").setExecutor(new SetSpawnCMD());
         getCommand("restart").setExecutor(new RestartCMD());
-        getCommand("math").setExecutor(new BinärCMD());
+        getCommand("math").setExecutor(new MathCMD());
        // Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessListener(), this);
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);

@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
 
-public class BinärCMD implements CommandExecutor {
+public class MathCMD implements CommandExecutor {
     private static int input;
     String prefix = MainClass.Prefix;
     String noperm = prefix + MainClass.NoPerm;
