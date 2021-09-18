@@ -86,6 +86,8 @@ public final class MainClass extends JavaPlugin {
         getCommand("math").setExecutor(new MathCMD());
         getCommand("warp").setExecutor(new WarpCMD());
         getCommand("afk").setExecutor(new AfkCMD());
+        getCommand("setwarp").setExecutor(new SetWarpCMD());
+        getCommand("delwarp").setExecutor(new DelWarpCMD());
        // Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessListener(), this);
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);

@@ -66,4 +66,7 @@ commands:
   warp:
     aliases: [warps]
   afk:
+  setwarp:
+  delwarp:
+    aliases: [deletewarp]
 

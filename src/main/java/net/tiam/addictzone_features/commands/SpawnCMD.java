@@ -28,7 +28,7 @@ public class SpawnCMD implements CommandExecutor {
                     if (new WarpManager("SPAWN").getWarp() == null) {
                         c.sendMessage(prefix + "Dieses Warp existiert nicht.");
                     } else {
-                        ((Player) c).teleport(new WarpManager("Spawn").getWarp());
+                        ((Player) c).teleport(new WarpManager("SPAWN").getWarp());
                         c.sendMessage(prefix + "Du wurdest zum §6Spawn §7teleportiert.");
                     }
                 } else {
@@ -40,10 +40,10 @@ public class SpawnCMD implements CommandExecutor {
                     c.sendMessage(noperm);
                 } else if (target == null) {
                     c.sendMessage(prefix + "Dieser Spieler ist nicht online.");
-                } else if (new WarpManager("Spawn").getWarp() == null) {
+                } else if (new WarpManager("SPAWN").getWarp() == null) {
                     c.sendMessage(prefix + "Dieses Warp existiert nicht.");
                 } else {
-                    target.teleport(new WarpManager("Spawn").getWarp());
+                    target.teleport(new WarpManager("SPAWN").getWarp());
                     c.sendMessage(prefix + "Du hast §b" + target.getName() + " §7zum §6Spawn §7teleportiert.");
                     target.sendMessage(prefix + "Du wrudest von §b" + SENDER + " §7zum §6Spawn §7teleportiert.");
                 }
