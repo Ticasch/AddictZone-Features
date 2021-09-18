@@ -5,10 +5,7 @@ import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
 import net.tiam.addictzone_features.MainClass;
 import net.tiam.addictzone_features.commands.VanishCMD;
-import net.tiam.addictzone_features.managers.PrefixColorGroupManager;
-import net.tiam.addictzone_features.managers.PrefixColorManager;
-import net.tiam.addictzone_features.managers.TablistManager;
-import net.tiam.addictzone_features.managers.WarpManager;
+import net.tiam.addictzone_features.managers.*;
 import net.tiam.addictzone_features.utilities.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -61,6 +58,7 @@ public class JoinListener implements Listener {
         if (!VanishCMD.VANISHED.contains(player))
             (new TablistManager(player)).setScoreboard();
         event.setJoinMessage(null);
+        event.getPlayer().clearTitle();
         if (!event.getPlayer().hasPlayedBefore())
             Bukkit.getScheduler().runTaskAsynchronously((Plugin)MainClass.getPlugin(), () -> {
                 player.getInventory().setItem(9, new ItemStack(Material.OAK_LOG, 16));
@@ -105,6 +103,9 @@ public class JoinListener implements Listener {
         if (VanishCMD.VANISHED.contains(event.getPlayer()))
             VanishCMD.VANISHED.remove(event.getPlayer());
         event.setQuitMessage(null);
+        if (new AfkManager(event.getPlayer().getUniqueId().toString()).getAfk() == true) {
+            new AfkManager(event.getPlayer().getUniqueId().toString()).setAfk(false);
+        }
     }
 
     @EventHandler
@@ -112,5 +113,8 @@ public class JoinListener implements Listener {
         if (VanishCMD.VANISHED.contains(event.getPlayer()))
             VanishCMD.VANISHED.remove(event.getPlayer());
         event.setLeaveMessage(null);
+        if (new AfkManager(event.getPlayer().getUniqueId().toString()).getAfk() == true) {
+            new AfkManager(event.getPlayer().getUniqueId().toString()).setAfk(false);
+        }
     }
 }

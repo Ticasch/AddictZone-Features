@@ -25,7 +25,7 @@ public class SpawnCMD implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("Spawn")) {
             if (args.length == 0) {
                 if (c instanceof Player) {
-                    if (new WarpManager("Spawn").getWarp() == null) {
+                    if (new WarpManager("SPAWN").getWarp() == null) {
                         c.sendMessage(prefix + "Dieses Warp existiert nicht.");
                     } else {
                         ((Player) c).teleport(new WarpManager("Spawn").getWarp());

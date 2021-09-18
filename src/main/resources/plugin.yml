@@ -63,4 +63,7 @@ commands:
   restart:
     aliases: [stop]
   math:
+  warp:
+    aliases: [warps]
+  afk:
 

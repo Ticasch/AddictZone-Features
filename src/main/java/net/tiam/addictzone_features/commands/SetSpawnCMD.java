@@ -18,7 +18,7 @@ public class SetSpawnCMD implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("setspawn")) {
             if (c instanceof Player) {
                 if (c.hasPermission(servername + ".setwarp")) {
-                    new WarpManager("Spawn").setWarp(((Player) c).getLocation());
+                    new WarpManager("SPAWN").setWarp(((Player) c).getLocation());
                     c.sendMessage(prefix + "Du hast den §6Spawn §7auf deine aktzuelle Position gesetzt.");
                 }
             } else {
