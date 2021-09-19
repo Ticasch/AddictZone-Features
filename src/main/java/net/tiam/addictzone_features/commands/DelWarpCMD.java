@@ -29,12 +29,12 @@ public class DelWarpCMD implements CommandExecutor {
                         return true;
                     }
                     String warp = String.valueOf(args[0]);
-                    if (new WarpManager(warp).getWarp() == null) {
+                    if (new WarpManager(warp.toUpperCase()).getWarp() == null) {
                         c.sendMessage(prefix + "Dieses Warp existiert nicht.");
                         return true;
                     }
                     c.sendMessage(prefix + "Du hast das Warp §b" + warp + " §7erfolgreich gelöscht.");
-                    new WarpManager(warp).setWarp(null);
+                    new WarpManager(warp.toUpperCase()).setWarp(null);
                 } else {
                     c.sendMessage(prefix + "Benutze: §b/Delwarp §7<§bWarp§7> §bconfirm");
                 }

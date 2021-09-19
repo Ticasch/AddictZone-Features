@@ -88,6 +88,9 @@ public final class MainClass extends JavaPlugin {
         getCommand("afk").setExecutor(new AfkCMD());
         getCommand("setwarp").setExecutor(new SetWarpCMD());
         getCommand("delwarp").setExecutor(new DelWarpCMD());
+        getCommand("home").setExecutor(new HomeCMD());
+        getCommand("sethome").setExecutor(new SethomeCMD());
+        getCommand("delhome").setExecutor(new DelhomeCMD());
        // Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessListener(), this);
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);

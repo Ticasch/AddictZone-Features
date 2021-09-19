@@ -69,4 +69,9 @@ commands:
   setwarp:
   delwarp:
     aliases: [deletewarp]
+  home:
+    aliases: [homes]
+  sethome:
+  delhome:
+    aliases: [deletehome]
 
