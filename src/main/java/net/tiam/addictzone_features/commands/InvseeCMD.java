@@ -41,7 +41,7 @@ public class InvseeCMD implements CommandExecutor {
                 inv.setContents(target.getInventory().getContents());
                 player.openInventory(inv);
             }
-            player.sendMessage(prefix + "hast das Inventar von + target.getName() + " );
+            player.sendMessage(prefix + "hast das Inventar von §b" + target.getName() + " §7geöffnet.");
         } else {
             player.sendMessage(prefix + "Benutze: §b/Invsee §7<§bSpieler§7>");
         }

@@ -12,9 +12,9 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerKickEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.*;
+import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
@@ -54,16 +54,18 @@ public class JoinListener implements Listener {
             (new TablistManager(player)).setScoreboard(prefix, suffix, color);
             player.sendMessage(mprefix + "Vanish aktiviert.");
         }
-        VanishCMD.VANISHED.stream().filter(vanished -> !player.hasPermission(servername + ".vanish.see")).forEachOrdered(vanished -> player.hidePlayer((Plugin)MainClass.getPlugin(), vanished));
+        VanishCMD.VANISHED.stream().filter(vanished -> !player.hasPermission(servername + ".vanish.see")).forEachOrdered(vanished -> player.hidePlayer((Plugin) MainClass.getPlugin(), vanished));
         if (!VanishCMD.VANISHED.contains(player))
             (new TablistManager(player)).setScoreboard();
         event.setJoinMessage(null);
         event.getPlayer().clearTitle();
-        if (!event.getPlayer().hasPlayedBefore())
-            Bukkit.getScheduler().runTaskAsynchronously((Plugin)MainClass.getPlugin(), () -> {
+
+        if (!event.getPlayer().hasPlayedBefore()) {
+            event.getPlayer().teleport(new WarpManager("SPAWN").getWarp());
+            Bukkit.getScheduler().runTaskAsynchronously((Plugin) MainClass.getPlugin(), () -> {
                 player.getInventory().setItem(9, new ItemStack(Material.OAK_LOG, 16));
-                player.getInventory().setItem(10, new ItemStack(Material.BIRCH_LOG, 16, (short)1));
-                player.getInventory().setItem(11, new ItemStack(Material.SPRUCE_LOG, 16, (short)2));
+                player.getInventory().setItem(10, new ItemStack(Material.BIRCH_LOG, 16, (short) 1));
+                player.getInventory().setItem(11, new ItemStack(Material.SPRUCE_LOG, 16, (short) 2));
                 player.getInventory().setItem(13, new ItemBuilder("§9§lStarter Rüstung", Material.IRON_HELMET, 1, PROTECTION_ENVIRONMENTAL, 2).build());
                 player.getInventory().setItem(15, new ItemStack(Material.DARK_OAK_LOG, 16));
                 player.getInventory().setItem(16, new ItemStack(Material.JUNGLE_LOG, 16));
@@ -96,6 +98,7 @@ public class JoinListener implements Listener {
                 player.sendMessage(MainClass.Line);
                 player.teleport(new WarpManager("Spawn").getWarp());
             });
+        }
     }
 
     @EventHandler
@@ -115,6 +118,20 @@ public class JoinListener implements Listener {
         event.setLeaveMessage(null);
         if (new AfkManager(event.getPlayer().getUniqueId().toString()).getAfk() == true) {
             new AfkManager(event.getPlayer().getUniqueId().toString()).setAfk(false);
+            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "lp user " + event.getPlayer().getUniqueId() + " meta removesuffix 2000");
+        }
+    }
+
+    @EventHandler
+    public void onDeath(PlayerRespawnEvent e) {
+        e.getPlayer().teleport(new WarpManager("SPAWN").getWarp());
+    }
+
+    @EventHandler
+    public void onWorldSwitch(PlayerChangedWorldEvent e) {
+        if (!e.getPlayer().hasPermission(servername + ".fly.worldswitch")) {
+            e.getPlayer().setFlying(false);
+            e.getPlayer().setAllowFlight(false);
         }
     }
 }

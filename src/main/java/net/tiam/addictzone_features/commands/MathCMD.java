@@ -21,7 +21,7 @@ public class MathCMD implements CommandExecutor {
             if (c.hasPermission(servername + "math.binary")) {
                 if (args.length == 2) {
                     if (args[0].equalsIgnoreCase("bin")) {
-                            c.sendMessage(prefix + "Die Dezimalzahlrzahl §b" + input + " §7ist binär: §b" + Integer.toBinaryString(input) + "§7.");
+                            c.sendMessage(prefix + "Die Dezimalzahl §b" + args[1] + " §7ist binär: §b" + Integer.toBinaryString(Integer.parseInt(args[1])) + "§7.");
                     } else if (args[0].equalsIgnoreCase("Dez")) {
                         String output = "";
                         int binZahl = Integer.parseInt(args[1]);
@@ -51,6 +51,4 @@ public class MathCMD implements CommandExecutor {
         }
         return false;
     }
-
-
 }

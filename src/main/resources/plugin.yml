@@ -74,4 +74,6 @@ commands:
   sethome:
   delhome:
     aliases: [deletehome]
-
+  sm:
+    aliases: [ts, teamspeak, discord, dc, socialmedia, spenden, contact, kontakt, email, e-mail, insta, twitter, forum, website]
+  sudo:

@@ -52,6 +52,10 @@ public class PrefixCMD implements CommandExecutor {
                         return true;
                     }
                     Player target = Bukkit.getPlayer(args[1]);
+                    if (target == null) {
+                        c.sendMessage(mprefix + "Dieser Spieler ist nicht online.");
+                        return true;
+                    }
                     if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("1") || args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("4") || args[0].equalsIgnoreCase("5") || args[0].equalsIgnoreCase("6") || args[0].equalsIgnoreCase("7") || args[0].equalsIgnoreCase("8") || args[0].equalsIgnoreCase("9") || args[0].equalsIgnoreCase("a") || args[0].equalsIgnoreCase("b") || args[0].equalsIgnoreCase("c") || args[0].equalsIgnoreCase("d") || args[0].equalsIgnoreCase("e") || args[0].equalsIgnoreCase("f") || args[0].equalsIgnoreCase("default")) {
                        String color;
                         if (args[0].equalsIgnoreCase("default")) {

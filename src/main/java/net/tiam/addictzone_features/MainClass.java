@@ -91,6 +91,8 @@ public final class MainClass extends JavaPlugin {
         getCommand("home").setExecutor(new HomeCMD());
         getCommand("sethome").setExecutor(new SethomeCMD());
         getCommand("delhome").setExecutor(new DelhomeCMD());
+        getCommand("sm").setExecutor(new SmCMD());
+        getCommand("sudo").setExecutor(new SudoCMD());
        // Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessListener(), this);
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);
