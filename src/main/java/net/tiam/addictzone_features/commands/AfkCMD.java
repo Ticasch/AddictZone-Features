@@ -1,5 +1,6 @@
 package net.tiam.addictzone_features.commands;
 
+import jdk.jfr.Event;
 import net.tiam.addictzone_features.MainClass;
 import net.tiam.addictzone_features.managers.AfkManager;
 import org.bukkit.Bukkit;
