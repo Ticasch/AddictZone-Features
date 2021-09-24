@@ -21,7 +21,7 @@ public class AsyncPlayerChatListener implements Listener {
     public void onChat(AsyncPlayerChatEvent event) {
         if (MainClass.getClosed().booleanValue() && !event.getPlayer().hasPermission(servername + ".chat.chatlock.bypass")) {
             String msg = event.getMessage();
-            System.out.println(prefix + "§7[§cChat-Event§7] §b" + event.getPlayer().getName() + " §7" + msg);
+            System.out.println(prefix + "§7[§cChat-Event§7] §b" + event.getPlayer().getName() + " §8➜ §7" + msg);
             event.getPlayer().sendMessage(prefix + "Der Chat ist deaktiviert." );
             event.setCancelled(true);
             return;
