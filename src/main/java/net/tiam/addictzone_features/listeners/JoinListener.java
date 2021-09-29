@@ -33,7 +33,6 @@ public class JoinListener implements Listener {
         String group = String.valueOf(this.luckPerms.getUserManager().getUser(player.getUniqueId()).getPrimaryGroup());
         if (new PrefixColorManager(uuid).getTabColor() == null) {
             new PrefixColorManager(uuid).setTabColor(new PrefixColorGroupManager(this.luckPerms.getUserManager().getUser(player.getUniqueId()).getPrimaryGroup()).getTabGroupColor());
-            //new PrefixColorManager(uuid).setTabColor("7");
         }
         if (VanishCMD.VANISHED.contains(player) || player.hasPermission(servername + ".vanish.auto")) {
             String suffix;
@@ -59,7 +58,6 @@ public class JoinListener implements Listener {
             (new TablistManager(player)).setScoreboard();
         event.setJoinMessage(null);
         event.getPlayer().clearTitle();
-
         if (!event.getPlayer().hasPlayedBefore()) {
             event.getPlayer().teleport(new WarpManager("SPAWN").getWarp());
             Bukkit.getScheduler().runTaskAsynchronously((Plugin) MainClass.getPlugin(), () -> {

@@ -3,6 +3,8 @@ package net.tiam.addictzone_features.managers;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.tiam.addictzone_features.MainClass;
 import net.tiam.addictzone_features.commands.PlainlessCMD;
 import net.tiam.addictzone_features.commands.VanishCMD;
@@ -13,6 +15,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 
+import java.util.Locale;
 import java.util.UUID;
 
 public class TablistManager {
@@ -104,7 +107,16 @@ public class TablistManager {
                 Bukkit.getScheduler().runTask(MainClass.getPlugin(), () -> setScoreboard());
         }
     }
-
+    public void setPrimaryGroup() {
+        String uuid = String.valueOf(player.getUniqueId());
+        String prefixcolor = new PrefixColorManager(uuid).getTabColor();
+        if (new PrimaryGroupManager(uuid).getPrimaryGroup(this.user.getPrimaryGroup()) == false) {
+            new PrimaryGroupManager(uuid).setPrimaryGroup(new PrimaryGroupManager(uuid).getPrimaryGroupUser(), false);
+            new PrimaryGroupManager(uuid).setPrimaryGroup(this.user.getPrimaryGroup(), true);
+            new PrimaryGroupManager(uuid).setPrimaryGroupUser(this.user.getPrimaryGroup());
+            new PrefixColorManager(uuid).setTabColor(new PrefixColorGroupManager(this.user.getPrimaryGroup()).getTabGroupColor());
+        }
+    }
     public String randomString() {
         String string = "" + (new TablistWeightManager(this.user.getPrimaryGroup())).getWeight();
         while ((string.getBytes()).length < 5)

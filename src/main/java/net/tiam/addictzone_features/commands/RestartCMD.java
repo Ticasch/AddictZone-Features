@@ -24,52 +24,53 @@ public class RestartCMD implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("restart")) {
             if (c.hasPermission(servername + ".restart")) {
                 if (args.length == 1) {
+                    Thread sleep = new Thread();
                     if (args[0].equalsIgnoreCase("confirm")) {
                         Bukkit.broadcastMessage(prefix + "Server Neustart in §b60 §7Sekunden.");
                         try {
-                            Thread.sleep(30000);
+                            sleep.sleep(30000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         Bukkit.broadcastMessage(prefix + "Server Neustart in §b30 §7Sekunden.");
                         try {
-                            Thread.sleep(24000);
+                            sleep.sleep(24000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         Bukkit.broadcastMessage(prefix + "Server Neustart in §b5 §7Sekunden.");
                         try {
-                            Thread.sleep(1000);
+                            sleep.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         Bukkit.broadcastMessage(prefix + "Server Neustart in §b4 §7Sekunden.");
                         try {
-                            Thread.sleep(1000);
+                            sleep.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         Bukkit.broadcastMessage(prefix + "Server Neustart in §b3 §7Sekunden.");
                         try {
-                            Thread.sleep(1000);
+                            sleep.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         Bukkit.broadcastMessage(prefix + "Server Neustart in §b2 §7Sekunden.");
                         try {
-                            Thread.sleep(1000);
+                            sleep.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         Bukkit.broadcastMessage(prefix + "Server Neustart in §b1 §7Sekunde.");
                         try {
-                            Thread.sleep(1000);
+                            sleep.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         Bukkit.broadcastMessage(prefix + "Server Neustart...");
                         try {
-                            Thread.sleep(1000);
+                            sleep.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

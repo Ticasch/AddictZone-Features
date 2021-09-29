@@ -21,6 +21,7 @@ public class CommandPreProcessListener implements Listener {
 
     @EventHandler
     public void onCommand(PlayerCommandPreprocessEvent e) {
+        String msg = e.getMessage();
         Player player = e.getPlayer();
         SpyCMD.SPYED.keySet().forEach(spyed -> {
             if (SpyCMD.SPYED.get(spyed) == spyed) {
