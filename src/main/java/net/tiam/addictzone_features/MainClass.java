@@ -6,6 +6,7 @@ import net.tiam.addictzone_features.commands.*;
 import net.tiam.addictzone_features.listeners.AsyncPlayerChatListener;
 import net.tiam.addictzone_features.listeners.CommandPreProcessListener;
 import net.tiam.addictzone_features.listeners.JoinListener;
+import net.tiam.addictzone_features.listeners.PerksListener;
 import net.tiam.addictzone_features.managers.PrefixColorGroupManager;
 import net.tiam.addictzone_features.managers.PrefixColorManager;
 import net.tiam.addictzone_features.managers.PrimaryGroupManager;
@@ -88,7 +89,7 @@ public final class MainClass extends JavaPlugin {
         getCommand("einfachemmy").setExecutor(new EinfachEmmyCMD());
         getCommand("Spawn").setExecutor(new SpawnCMD());
         getCommand("SetSpawn").setExecutor(new SetSpawnCMD());
-        getCommand("restart").setExecutor(new RestartCMD());
+        //getCommand("restart").setExecutor(new RestartCMD());
         getCommand("math").setExecutor(new MathCMD());
         getCommand("warp").setExecutor(new WarpCMD());
         getCommand("afk").setExecutor(new AfkCMD());
@@ -100,7 +101,10 @@ public final class MainClass extends JavaPlugin {
         getCommand("sm").setExecutor(new SmCMD());
         getCommand("sudo").setExecutor(new SudoCMD());
         getCommand("speed").setExecutor(new SpeedCMD());
+        getCommand("wb").setExecutor(new WbCMD());
+        getCommand("perk").setExecutor(new PerkCMD());
        // Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
+        Bukkit.getPluginManager().registerEvents(new PerksListener(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessListener(), this);
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);
         Bukkit.getPluginManager().registerEvents(new JoinListener(), this);

@@ -60,8 +60,6 @@ commands:
     aliases: [emmy]
   spawn:
   setspawn:
-  restart:
-    aliases: [stop]
   math:
   warp:
     aliases: [warps]
@@ -78,3 +76,7 @@ commands:
     aliases: [ts, teamspeak, discord, dc, socialmedia, spenden, contact, kontakt, email, e-mail, insta, twitter, forum, website]
   sudo:
   speed:
+  wb:
+    aliases: [workbench, werkbank, wbank, wbench, craft, craftingtable]
+  perk:
+    aliases: [perks]

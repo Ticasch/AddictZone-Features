@@ -31,7 +31,7 @@ public class ChatClearCMD implements CommandExecutor {
             }
             for (Player all : Bukkit.getOnlinePlayers()) {
                 if (!all.hasPermission(servername + ".ChatClear.Ignore"))
-                    for (int i = 1; i < 151; i++)
+                    for (int i = 1; i < 1000; i++)
                         all.sendMessage("");
             }
             Bukkit.broadcastMessage(prefix + "Der Chat wurde von §b" + SENDER + " §7geleert.");

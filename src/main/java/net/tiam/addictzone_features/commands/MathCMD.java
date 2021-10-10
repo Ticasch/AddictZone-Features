@@ -6,10 +6,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class MathCMD implements CommandExecutor {
-    private static int input;
+    private static long input;
     String prefix = MainClass.Prefix;
     String noperm = prefix + MainClass.NoPerm;
     String servername = MainClass.ServerName;
@@ -21,24 +21,39 @@ public class MathCMD implements CommandExecutor {
             if (c.hasPermission(servername + "math.binary")) {
                 if (args.length == 2) {
                     if (args[0].equalsIgnoreCase("bin")) {
-                            c.sendMessage(prefix + "Die Dezimalzahl §b" + args[1] + " §7ist binär: §b" + Integer.toBinaryString(Integer.parseInt(args[1])) + "§7.");
+                        if (!isLong(args[1])) {
+                            c.sendMessage(prefix + "Du musst eine gültige Zahl angeben.");
+                            return true;
+                        }
+                            c.sendMessage(prefix + "Die Dezimalzahl §b" + args[1] + " §7ist binär: §b" + Long.toBinaryString(Long.parseLong(args[1])) + "§7.");
                     } else if (args[0].equalsIgnoreCase("Dez")) {
                         String output = "";
-                        int binZahl = Integer.parseInt(args[1]);
-                        int anzahlVerschiebung=0;
-                        int dezZahl=0;
-                        int restWert=0;
+                        if (!isLong(args[1])) {
+                            c.sendMessage(prefix + "Du musst eine gültige Zahl angeben.");
+                            return true;
+                        }
+                        long binZahl = Long.parseLong(args[1]);
+                        long anzahlVerschiebung=0;
+                        long dezZahl=0;
+                        long restWert=0;
                         while (binZahl !=0){
                             restWert=binZahl % 10;
-                            dezZahl = dezZahl+(int)(restWert*(Math.pow(2, anzahlVerschiebung)));
+                            dezZahl = dezZahl+(long)(restWert*(Math.pow(2, anzahlVerschiebung)));
                             binZahl=binZahl / 10;
                             anzahlVerschiebung=anzahlVerschiebung+1;
                         }
                         output = output + dezZahl;
-                        c.sendMessage(prefix + "Die Binärzahl §b" + args[1] + " §7ist dezimal: §b" + dezZahl + "§7.");
+                        String count = NumberFormat(dezZahl);
+                        String countReplaced = count.replace(".", "_").replace(",", ";");
+                        String countString = countReplaced.replace("_", ",").replace(";", ".");
+                        c.sendMessage(prefix + "Die Binärzahl §b" + args[1] + " §7ist dezimal: §b" + countString + "§7.");
                     } else if (args[0].equalsIgnoreCase("hex")) {
-                        input = Integer.parseInt(args[1]);
-                        c.sendMessage(prefix + "Die Dezimalzahl §b" + input + " §7ist Hexadezimal: §b" + Integer.toHexString(input) + "§7.");
+                        if (!isLong(args[1])) {
+                            c.sendMessage(prefix + "Du musst eine gültige Zahl angeben.");
+                            return true;
+                        }
+                        input = Long.parseLong(args[1]);
+                        c.sendMessage(prefix + "Die Dezimalzahl §b" + input + " §7ist Hexadezimal: §b" + Long.toHexString(input) + "§7.");
                     } else {
                         c.sendMessage(prefix + "Benutze: §b/Math §7<§bBin§7|§bDez§7|§bHex§7> <§bZahl§7>");
                     }
@@ -50,5 +65,17 @@ public class MathCMD implements CommandExecutor {
             }
         }
         return false;
+    }
+    public String NumberFormat(long count) {
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###.##");
+        return decimalFormat.format(count);
+    }
+    public boolean isLong(String input) {
+        try {
+            Long.parseLong(input);
+        } catch (NumberFormatException|NullPointerException e) {
+            return false;
+        }
+        return true;
     }
 }

@@ -32,6 +32,10 @@ public class SpeedCMD implements CommandExecutor {
             return true;
         }
         if (args.length == 1) {
+            if (!isInteger(args[0])) {
+                c.sendMessage(prefix + "Du musst eine Zahl angeben.");
+                return true;
+            }
             if (Double.parseDouble(args[0]) > 10 || Double.parseDouble(args[0]) < 0) {
                 c.sendMessage(prefix + "Bitte wähle eine Zahl zwischen §b1 §7und §b10§7.");
                 return true;
@@ -45,6 +49,10 @@ public class SpeedCMD implements CommandExecutor {
                 ((Player) c).setWalkSpeed((float) speed);
             }
         } else if (args.length == 2) {
+            if (!isInteger(args[0])) {
+                c.sendMessage(prefix + "Du musst eine Zahl angeben.");
+                return true;
+            }
             if (Double.parseDouble(args[0]) > 10 || Double.parseDouble(args[0]) < 0) {
                 c.sendMessage(prefix + "Bitte wähle eine Zahl zwischen §b1 §7und §b10§7.");
                 return true;
@@ -68,5 +76,13 @@ public class SpeedCMD implements CommandExecutor {
             c.sendMessage(prefix + "Benutze: §b/Speed §7<§bSpeed§7>");
         }
         return false;
+    }
+    public static boolean isInteger(String strNum) {
+        try {
+            int i = Integer.parseInt(strNum);
+        } catch (NumberFormatException|NullPointerException nfe) {
+            return false;
+        }
+        return true;
     }
 }

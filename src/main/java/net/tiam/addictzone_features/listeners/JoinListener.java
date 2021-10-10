@@ -1,5 +1,6 @@
 package net.tiam.addictzone_features.listeners;
 
+import com.destroystokyo.paper.event.player.PlayerPostRespawnEvent;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
@@ -9,6 +10,7 @@ import net.tiam.addictzone_features.managers.*;
 import net.tiam.addictzone_features.utilities.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,7 +18,11 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.potion.PotionEffect;
+
+import java.util.List;
 
 import static org.bukkit.enchantments.Enchantment.*;
 
@@ -121,8 +127,45 @@ public class JoinListener implements Listener {
     }
 
     @EventHandler
-    public void onDeath(PlayerRespawnEvent e) {
-        e.getPlayer().teleport(new WarpManager("SPAWN").getWarp());
+    public void onRespawn(PlayerRespawnEvent e) {
+        e.setRespawnLocation(new WarpManager("SPAWN").getWarp());
+    }
+
+    @EventHandler
+    public void onDeath(PlayerDeathEvent e) {
+        Player p = e.getEntity();
+        if  (new PerkManager(p.getUniqueId().toString()).getPerkStatus(PerkManager.Perk.Keep_Inventory)) {
+            e.setKeepInventory(true);
+            if (new PerkManager(p.getUniqueId().toString()).getPerkStatus(PerkManager.Perk.Keep_XP)) {
+                e.setKeepLevel(true);
+                e.getDrops().clear();
+            } else {
+                e.setKeepLevel(false);
+                e.getDrops().clear();
+            }
+        } else {
+            if (new PerkManager(p.getUniqueId().toString()).getPerkStatus(PerkManager.Perk.Keep_XP)) {
+                e.setKeepLevel(true);
+                e.setDroppedExp(0);
+            } else {
+                e.setKeepLevel(false);
+            }
+        }
+    }
+
+    @EventHandler
+    public void onPostRespawn(PlayerPostRespawnEvent e) {
+        Player p = e.getPlayer();
+        PerkManager manager = new PerkManager(p.getUniqueId().toString());
+        String s = String.valueOf(manager.getPerks());
+        for (int i = 0; i < manager.getPerks().size(); i++) {
+            PerkManager.Perk perk = PerkManager.Perk.valueOf(manager.getPerks().get(i));
+            if (manager.getPerkStatus(perk)) {
+                if (perk.getEffect() != null && perk.getLvl() != null) {
+                    p.addPotionEffect(new PotionEffect(perk.getEffect(), 2147483647, perk.getLvl().intValue() - 1));
+                }
+            }
+        }
     }
 
     @EventHandler

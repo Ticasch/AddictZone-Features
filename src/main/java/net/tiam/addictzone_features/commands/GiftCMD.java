@@ -71,6 +71,10 @@ public class GiftCMD implements CommandExecutor {
                             }
                         }
                     } else if (args.length == 3) {
+                        if (!isInteger(args[2])) {
+                            p.sendMessage(prefix + "Du musst eine Zahl angeben.");
+                            return true;
+                        }
                         Player target = Bukkit.getPlayer(args[0]);
                         int rankingTime = Integer.parseInt(args[2]);
                         int newRankingTime = rankingTime * 86400;
@@ -117,7 +121,14 @@ public class GiftCMD implements CommandExecutor {
             }
         return false;
     }
-
+    public static boolean isInteger(String strNum) {
+        try {
+            int i = Integer.parseInt(strNum);
+        } catch (NumberFormatException|NullPointerException nfe) {
+            return false;
+        }
+        return true;
+    }
     public static int permittedTimePermission(Player player) {
         String servername = MainClass.ServerName;
         for (int i = 1000; i >= 0; i--) {

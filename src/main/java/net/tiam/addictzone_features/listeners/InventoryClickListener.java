@@ -48,4 +48,5 @@ public class InventoryClickListener implements Listener {
         if (EcCMD.uuid.contains(player.getUniqueId().toString()))
             EcCMD.uuid.remove(player.getUniqueId().toString());
     }
+
 }
