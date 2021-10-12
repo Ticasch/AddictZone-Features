@@ -20,7 +20,6 @@ public class EinfachEmmyCMD implements CommandExecutor {
             p.sendActionBar("§cYouTube: §7Klicke auf den Link im Chat!");
             p.sendMessage(MainClass.Prefix + "§7EinfachEmmy's YouTube: §bhttps://www.youtube.com/c/EinfachEmmy");
             int i = 1;
-            p.sendMessage();
         }
         return false;
     }

@@ -1,7 +1,7 @@
 package net.tiam.addictzone_features.listeners;
 
 import de.tr7zw.nbtapi.NBTItem;
-import net.kyori.adventure.text.Component;
+import net.tiam.addictzone_features.MainClass;
 import net.tiam.addictzone_features.commands.PerkCMD;
 import net.tiam.addictzone_features.managers.PerkManager;
 import org.bukkit.enchantments.Enchantment;
@@ -15,12 +15,11 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import java.util.List;
 
 public class PerksListener implements Listener {
-
+    String prefix = MainClass.Prefix;
     @EventHandler
     public void onClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
@@ -70,12 +69,13 @@ public class PerksListener implements Listener {
         }
     }
     public String statusString(Player p, String perm, boolean activated) {
+        String prefix = "§7➜ Status: ";
         if (p.hasPermission(perm)) {
             if (activated)
-                return "§aaktiviert.";
-            return "§cdeaktiviert.";
+                return prefix + "§aaktiviert";
+            return prefix + "§cdeaktiviert";
         }
-        return "§cNicht freigeschaltet.";
+        return prefix + "§cNicht freigeschaltet";
     }
     @EventHandler
     public void onHunger(FoodLevelChangeEvent e) {
@@ -91,7 +91,35 @@ public class PerksListener implements Listener {
             if (e.getEntity().isInWater())
                 e.setCancelled(true);
     }
-    @EventHandler
-    public void onPlayerEnterPlot() {
+    /*@EventHandler
+    public void onEnter(PlayerEnterPlotEvent e) {
+        Player p = (Player) e.getPlotPlayer();
+        Plot plot = e.getPlot();
+        PerkManager.Perk perk = PerkManager.Perk.Plot_Fly;
+        PerkManager manager = new PerkManager(p.getUniqueId().toString());
+        if (manager.getPerkStatus(perk)) {
+            if (plot.getOwners().contains(p.getUniqueId()) || plot.getTrusted().contains(p.getUniqueId()) || plot.getMembers().contains(p.getUniqueId())) {
+                if (!p.hasPermission("AddictZone.Perk.Plot-Fly.bypass")) {
+                    p.sendMessage(prefix + "Plot-Fly aktiviert.");
+                    p.setAllowFlight(true);
+                    p.setFlying(true);
+                }
+            }
+        }
     }
+    @EventHandler
+    public void onLeave(PlayerLeavePlotEvent e) {
+        Player p = (Player) e.getPlotPlayer();
+        Plot plot = e.getPlot();
+        PerkManager.Perk perk = PerkManager.Perk.Plot_Fly;
+        PerkManager manager = new PerkManager(p.getUniqueId().toString());
+        if (manager.getPerkStatus(perk)) {
+            if (plot.getOwners().contains(p.getUniqueId()) || plot.getTrusted().contains(p.getUniqueId()) || plot.getMembers().contains(p.getUniqueId())) {
+                if (!p.hasPermission("AddictZone.Perk.Plot-Fly.bypass")) {
+                    p.sendMessage(prefix + "Plot-Fly deaktiviert.");
+                    p.setAllowFlight(false);
+                }
+            }
+        }
+    } */
 }

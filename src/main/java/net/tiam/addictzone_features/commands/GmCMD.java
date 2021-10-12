@@ -112,11 +112,11 @@ public class GmCMD implements CommandExecutor {
                                         c.sendMessage(prefix + "Dieser Spieler ist nicht online.");
                                     } else {
                                         c.sendMessage(prefix + "Du hast den Spieler §b" + target.getName() + " §7 in den Gamemode §b0 §7gesetzt.");
-                                        target.sendMessage(prefix + "Du wurdest von §b" + SENDER + " §7in den Gamemode §b0§7 getzt.");
+                                        target.sendMessage(prefix + "Du wurdest von §b" + SENDER + " §7in den Gamemode §b0§7 gesetzt.");
                                         target.setGameMode(GameMode.SURVIVAL);
                                         for (Player all : Bukkit.getOnlinePlayers()) {
                                             if (all.hasPermission(servername + ".Gm.Notify") && all != c) {
-                                                all.sendMessage(prefix + "Der Spieler §b" + target.getName() + " §7wurde von §b" + SENDER + " §7in den Gamemode §b0 §7gsetzt.");
+                                                all.sendMessage(prefix + "Der Spieler §b" + target.getName() + " §7wurde von §b" + SENDER + " §7in den Gamemode §b0 §7gesetzt.");
                                                 return true;
                                             }
                                         }
@@ -130,11 +130,11 @@ public class GmCMD implements CommandExecutor {
                                         c.sendMessage(prefix + "Dieser Spieler ist nicht online.");
                                     } else {
                                         c.sendMessage(prefix + "Du hast den Spieler §b" + target.getName() + " §7 in den Gamemode §b1 §7gesetzt.");
-                                        target.sendMessage(prefix + "Du wurdest von §b" + SENDER + " §7in den Gamemode §b1§7 getzt.");
+                                        target.sendMessage(prefix + "Du wurdest von §b" + SENDER + " §7in den Gamemode §b1§7 gesetzt.");
                                         target.setGameMode(GameMode.CREATIVE);
                                         for (Player all : Bukkit.getOnlinePlayers()) {
                                             if (all.hasPermission(servername + ".Gm.Notify") && all != c) {
-                                                all.sendMessage(prefix + "Der Spieler §b" + target.getName() + " §7wurde von §b" + SENDER + " §7in den Gamemode §b1 §7gsetzt.");
+                                                all.sendMessage(prefix + "Der Spieler §b" + target.getName() + " §7wurde von §b" + SENDER + " §7in den Gamemode §b1 §7gesetzt.");
                                                 return true;
                                             }
                                         }
@@ -148,11 +148,11 @@ public class GmCMD implements CommandExecutor {
                                         c.sendMessage(prefix + "Dieser Spieler ist nicht online.");
                                     } else {
                                         c.sendMessage(prefix + "Du hast den Spieler §b" + target.getName() + " §7 in den Gamemode §b2 §7gesetzt.");
-                                        target.sendMessage(prefix + "Du wurdest von §b" + SENDER + " §7in den Gamemode §b2§7 getzt.");
+                                        target.sendMessage(prefix + "Du wurdest von §b" + SENDER + " §7in den Gamemode §b2§7 gesetzt.");
                                         target.setGameMode(GameMode.ADVENTURE);
                                         for (Player all : Bukkit.getOnlinePlayers()) {
                                             if (all.hasPermission(servername + ".Gm.Notify") && all != c) {
-                                                all.sendMessage(prefix + "Der Spieler §b" + target.getName() + " §7wurde von §b" + SENDER + " §7in den Gamemode §b2 §7gsetzt.");
+                                                all.sendMessage(prefix + "Der Spieler §b" + target.getName() + " §7wurde von §b" + SENDER + " §7in den Gamemode §b2 §7gesetzt.");
                                                 return true;
                                             }
                                         }
@@ -166,11 +166,11 @@ public class GmCMD implements CommandExecutor {
                                         c.sendMessage(prefix + "Dieser Spieler ist nicht online.");
                                     } else {
                                         c.sendMessage(prefix + "Du hast den Spieler §b" + target.getName() + " §7 in den Gamemode §b3 §7gesetzt.");
-                                        target.sendMessage(prefix + "Du wurdest von §b" + SENDER + " §7in den Gamemode §b3§7 getzt.");
+                                        target.sendMessage(prefix + "Du wurdest von §b" + SENDER + " §7in den Gamemode §b3§7 gesetzt.");
                                         target.setGameMode(GameMode.SPECTATOR);
                                         for (Player all : Bukkit.getOnlinePlayers()) {
                                             if (all.hasPermission(servername + ".Gm.Notify") && all != c) {
-                                                all.sendMessage(prefix + "Der Spieler §b" + target.getName() + " §7wurde von §b" + SENDER + " §7in den Gamemode §b3 §7gsetzt.");
+                                                all.sendMessage(prefix + "Der Spieler §b" + target.getName() + " §7wurde von §b" + SENDER + " §7in den Gamemode §b3 §7gesetzt.");
                                                 return true;
                                             }
                                         }
@@ -182,7 +182,7 @@ public class GmCMD implements CommandExecutor {
                                 c.sendMessage(usage);
                             }
                         } else {
-                            c.sendMessage(prefix + "Du hast keine Rechte, andere Spieler in Spielmodi zu setzen.");
+                            c.sendMessage(prefix + "Du hast keine Rechte, den Gamemode anderer Spieler zu ändern..");
                         }
 
                 } else {

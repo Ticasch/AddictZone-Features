@@ -40,7 +40,9 @@ public class PerkManager {
         Speed(PotionEffectType.SPEED, Integer.valueOf(2), "Speed", "AddictZone.Perk.Speed"),
         Sprungkraft(PotionEffectType.JUMP, Integer.valueOf(2), "Sprungkraft", "AddictZone.Perk.Sprungkraft"),
         Heilung(PotionEffectType.REGENERATION, Integer.valueOf(2), "Heilung", "AddictZone.Perk.Heilung"),
-        Glow(PotionEffectType.GLOWING, Integer.valueOf(1), "Glow", "AddictZone.Perk.Glow");
+        Glow(PotionEffectType.GLOWING, Integer.valueOf(1), "Glow", "AddictZone.Perk.Glow"),
+        Nachtsicht(PotionEffectType.NIGHT_VISION, Integer.valueOf(1), "Nachtsicht", "AddictZone.Perk.Nachtsicht"),
+        Taucher(PotionEffectType.DOLPHINS_GRACE, Integer.valueOf(1), "Taucher", "AddictZone.Perk.Taucher");
         PotionEffectType effect;
         Integer lvl;
         String name;
@@ -64,7 +66,7 @@ public class PerkManager {
     public ArrayList<String> getPerks() {
         ArrayList<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(new String[] {
-                "Eile", "Stärke", "Kein_Hunger", "Feuerschutz", "Atmung", "Speed", "Sprungkraft", "Heilung", "Plot_Fly", "Keep_Inventory", "Keep_XP", "Glow"
+                "Eile", "Stärke", "Kein_Hunger", "Feuerschutz", "Atmung", "Speed", "Sprungkraft", "Heilung", "Plot_Fly", "Keep_Inventory", "Keep_XP", "Glow", "Taucher", "Nachtsicht"
         }));
         return list;
     }

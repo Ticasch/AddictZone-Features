@@ -73,7 +73,7 @@ public class VanishCMD implements CommandExecutor {
                             String uuid = String.valueOf(player.getUniqueId());
                             String prefixcolor = new PrefixColorManager(target.getUniqueId().toString()).getTabColor();
                             VANISHED.add(target);
-                            String prefix = "§" + prefixcolor + this.luckPerms.getUserManager().getUser(target.getUniqueId()).getCachedData().getMetaData().getPrefix().replace("&", "§") + " §7| ";
+                            String prefix = "§" + prefixcolor + this.luckPerms.getUserManager().getUser(target.getUniqueId()).getCachedData().getMetaData().getPrefix().replace("&", "§") + " §8| ";
                             if (this.luckPerms.getUserManager().getUser(player.getUniqueId()).getCachedData().getMetaData().getSuffix() == null) {
                                 suffix = "";
                             } else {

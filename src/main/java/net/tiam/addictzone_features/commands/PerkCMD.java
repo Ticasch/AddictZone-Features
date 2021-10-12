@@ -64,7 +64,7 @@ public class PerkCMD implements CommandExecutor {
         keep_XpStack.setItemMeta(keep_XpMeta);
         ItemStack eileStack = new ItemBuilder("§c§lEile", Material.GOLDEN_PICKAXE, 1).build();
         ItemMeta eileMeta = eileStack.getItemMeta();
-        eileMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cEile §b4 §7Effekt.", "", statusString(p, PerkManager.Perk.Eile.getPerm(), manager.getPerkStatus(PerkManager.Perk.Eile))}));
+        eileMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cEile §b5 §7Effekt.", "", statusString(p, PerkManager.Perk.Eile.getPerm(), manager.getPerkStatus(PerkManager.Perk.Eile))}));
         if (manager.getPerkStatus(PerkManager.Perk.Eile)) {
             eileMeta.addEnchant(Enchantment.LURE, 0, true);
             eileMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
@@ -152,6 +152,14 @@ public class PerkCMD implements CommandExecutor {
             speedMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
         }
         speedStack.setItemMeta(speedMeta);
+        ItemStack taucherStack = new ItemBuilder("§c§lTaucher", Material.TRIDENT, 1).build();
+        ItemMeta taucherMeta = taucherStack.getItemMeta();
+        taucherMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cGunst des Delfins §7Effekt.", "", statusString(p, PerkManager.Perk.Taucher.getPerm(), manager.getPerkStatus(PerkManager.Perk.Taucher))}));
+        if (manager.getPerkStatus(PerkManager.Perk.Taucher)) {
+            taucherMeta.addEnchant(Enchantment.LURE, 0, true);
+            taucherMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+        }
+        taucherStack.setItemMeta(taucherMeta);
         ItemStack jumpStack = new ItemBuilder("§c§lSprungkraft", Material.RABBIT_FOOT, 1).build();
         ItemMeta jumpMeta = jumpStack.getItemMeta();
         jumpMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cSprungkraft §b2 §7Effekt.", "", statusString(p, PerkManager.Perk.Sprungkraft.getPerm(), manager.getPerkStatus(PerkManager.Perk.Sprungkraft))}));
@@ -162,7 +170,7 @@ public class PerkCMD implements CommandExecutor {
         jumpStack.setItemMeta(jumpMeta);
         ItemStack glowStack = new ItemBuilder("§c§lGlow", Material.GLOWSTONE_DUST, 1).build();
         ItemMeta glowMeta = glowStack.getItemMeta();
-        glowMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cLeuchten §b1 §7Effekt.", "", statusString(p, PerkManager.Perk.Glow.getPerm(), manager.getPerkStatus(PerkManager.Perk.Glow))}));
+        glowMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cLeuchten §7Effekt.", "", statusString(p, PerkManager.Perk.Glow.getPerm(), manager.getPerkStatus(PerkManager.Perk.Glow))}));
         if (manager.getPerkStatus(PerkManager.Perk.Glow)) {
             glowMeta.addEnchant(Enchantment.LURE, 0, true);
             glowMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
@@ -170,12 +178,20 @@ public class PerkCMD implements CommandExecutor {
         glowStack.setItemMeta(glowMeta);
         ItemStack feuerSchutzStack = new ItemBuilder("§c§lFeuerschutz", Material.LAVA_BUCKET, 1).build();
         ItemMeta feuerSchutzMeta = feuerSchutzStack.getItemMeta();
-        feuerSchutzMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhlätst den §cFeuerresistenz §b1 §7Effekt.", "", statusString(p, PerkManager.Perk.Feuerschutz.getPerm(), manager.getPerkStatus(PerkManager.Perk.Feuerschutz))}));
+        feuerSchutzMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhlätst den §cFeuerresistenz §7Effekt.", "", statusString(p, PerkManager.Perk.Feuerschutz.getPerm(), manager.getPerkStatus(PerkManager.Perk.Feuerschutz))}));
         if (manager.getPerkStatus(PerkManager.Perk.Feuerschutz)) {
             feuerSchutzMeta.addEnchant(Enchantment.LURE, 0, true);
             feuerSchutzMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
         }
         feuerSchutzStack.setItemMeta(feuerSchutzMeta);
+        ItemStack nightStack = new ItemBuilder("§c§lNachtsicht", Material.ENDER_EYE, 1).build();
+        ItemMeta nightMeta = nightStack.getItemMeta();
+        nightMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cNachtsicht §7Effekt.", "", statusString(p, PerkManager.Perk.Nachtsicht.getPerm(), manager.getPerkStatus(PerkManager.Perk.Nachtsicht))}));
+        if (manager.getPerkStatus(PerkManager.Perk.Nachtsicht)) {
+            nightMeta.addEnchant(Enchantment.LURE, 0, true);
+            nightMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+        }
+        nightStack.setItemMeta(nightMeta);
         ItemStack atmungStack = new ItemBuilder("§c§lAtmung", Material.WATER_BUCKET, 1).build();
         ItemMeta atmungMeta = atmungStack.getItemMeta();
         atmungMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du kannst unterwasser atmen.", "", statusString(p, PerkManager.Perk.Atmung.getPerm(), manager.getPerkStatus(PerkManager.Perk.Atmung))}));
@@ -190,33 +206,40 @@ public class PerkCMD implements CommandExecutor {
         ItemMeta pageMeta = pageStack.getItemMeta();
         NBTItem speedItem = new NBTItem(speedStack);
         speedItem.setObject("perk", PerkManager.Perk.Speed);
+        NBTItem taucherItem = new NBTItem(taucherStack);
+        taucherItem.setObject("perk", PerkManager.Perk.Taucher);
         NBTItem jumpItem = new NBTItem(jumpStack);
         jumpItem.setObject("perk", PerkManager.Perk.Sprungkraft);
         NBTItem glowItem = new NBTItem(glowStack);
         glowItem.setObject("perk", PerkManager.Perk.Glow);
         NBTItem feuerSchutzItem = new NBTItem(feuerSchutzStack);
         feuerSchutzItem.setObject("perk", PerkManager.Perk.Feuerschutz);
+        NBTItem nightItem = new NBTItem(nightStack);
+        nightItem.setObject("perk", PerkManager.Perk.Nachtsicht);
         NBTItem atmungItem = new NBTItem(atmungStack);
         atmungItem.setObject("perk", PerkManager.Perk.Atmung);
         NBTItem closeItem = new NBTItem(closeStack);
         closeItem.setObject("close", true);
         NBTItem pageItem = new NBTItem(pageStack);
         pageItem.setObject("page-1", true);
-        inv.setItem(11, speedItem.getItem());
-        inv.setItem(13, jumpItem.getItem());
-        inv.setItem(15, glowItem.getItem());
-        inv.setItem(30, feuerSchutzItem.getItem());
-        inv.setItem(32, atmungItem.getItem());
+        inv.setItem(10, speedItem.getItem());
+        inv.setItem(12, taucherItem.getItem());
+        inv.setItem(14, jumpItem.getItem());
+        inv.setItem(16, glowItem.getItem());
+        inv.setItem(29, feuerSchutzItem.getItem());
+        inv.setItem(31, nightItem.getItem());
+        inv.setItem(33, atmungItem.getItem());
         inv.setItem(48, pageItem.getItem());
         inv.setItem(49, closeItem.getItem());
         p.openInventory(inv);
     }
     public String statusString(Player p, String perm, boolean activated) {
+        String prefix = "§7➜ Status: ";
         if (p.hasPermission(perm)) {
             if (activated)
-                return "§aaktiviert.";
-            return "§cdeaktiviert.";
+                return prefix + "§aaktiviert";
+            return prefix + "§cdeaktiviert";
         }
-        return "§cNicht freigeschaltet.";
+        return prefix + "§cNicht freigeschaltet";
     }
 }

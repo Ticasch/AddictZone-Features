@@ -3,10 +3,7 @@ package net.tiam.addictzone_features;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.tiam.addictzone_features.commands.*;
-import net.tiam.addictzone_features.listeners.AsyncPlayerChatListener;
-import net.tiam.addictzone_features.listeners.CommandPreProcessListener;
-import net.tiam.addictzone_features.listeners.JoinListener;
-import net.tiam.addictzone_features.listeners.PerksListener;
+import net.tiam.addictzone_features.listeners.*;
 import net.tiam.addictzone_features.managers.PrefixColorGroupManager;
 import net.tiam.addictzone_features.managers.PrefixColorManager;
 import net.tiam.addictzone_features.managers.PrimaryGroupManager;
@@ -14,7 +11,6 @@ import net.tiam.addictzone_features.managers.TablistManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import sun.tools.jconsole.Tab;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -104,6 +100,7 @@ public final class MainClass extends JavaPlugin {
         getCommand("wb").setExecutor(new WbCMD());
         getCommand("perk").setExecutor(new PerkCMD());
        // Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
+        Bukkit.getPluginManager().registerEvents(new PrefixListener(), this);
         Bukkit.getPluginManager().registerEvents(new PerksListener(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessListener(), this);
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);

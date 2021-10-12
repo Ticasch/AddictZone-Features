@@ -15,7 +15,6 @@ public class PrefixColorManager {
         this.fileBuilder.setValue(this.uuid, String.valueOf(color));
         this.fileBuilder.save();
     }
-
     public String getTabColor() {
         if (this.fileBuilder.getString(this.uuid) == null)
             return null;

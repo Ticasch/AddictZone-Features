@@ -22,10 +22,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 
-import java.util.List;
-
-import static org.bukkit.enchantments.Enchantment.*;
-
 public class JoinListener implements Listener {
     private final LuckPerms luckPerms = LuckPermsProvider.get();
     String mprefix = MainClass.Prefix;
@@ -70,25 +66,25 @@ public class JoinListener implements Listener {
                 player.getInventory().setItem(9, new ItemStack(Material.OAK_LOG, 16));
                 player.getInventory().setItem(10, new ItemStack(Material.BIRCH_LOG, 16, (short) 1));
                 player.getInventory().setItem(11, new ItemStack(Material.SPRUCE_LOG, 16, (short) 2));
-                player.getInventory().setItem(13, new ItemBuilder("§9§lStarter Rüstung", Material.IRON_HELMET, 1, PROTECTION_ENVIRONMENTAL, 2).build());
+                player.getInventory().setItem(13, new ItemBuilder("§9§lStarter Rüstung", Material.IRON_HELMET, 1, Enchantment.PROTECTION_ENVIRONMENTAL, 2).build());
                 player.getInventory().setItem(15, new ItemStack(Material.DARK_OAK_LOG, 16));
                 player.getInventory().setItem(16, new ItemStack(Material.JUNGLE_LOG, 16));
                 player.getInventory().setItem(17, new ItemStack(Material.ACACIA_LOG, 16));
                 player.getInventory().setItem(18, new ItemStack(Material.OAK_SAPLING, 16));
                 player.getInventory().setItem(19, new ItemStack(Material.BIRCH_SAPLING, 16));
                 player.getInventory().setItem(20, new ItemStack(Material.SPRUCE_SAPLING, 16));
-                player.getInventory().setItem(22, new ItemBuilder("§9§lStarter Rüstung", Material.IRON_CHESTPLATE, 1, PROTECTION_ENVIRONMENTAL, 2).build());
+                player.getInventory().setItem(22, new ItemBuilder("§9§lStarter Rüstung", Material.IRON_CHESTPLATE, 1, Enchantment.PROTECTION_ENVIRONMENTAL, 2).build());
                 player.getInventory().setItem(24, new ItemStack(Material.DARK_OAK_SAPLING, 16));
                 player.getInventory().setItem(25, new ItemStack(Material.JUNGLE_SAPLING, 16));
                 player.getInventory().setItem(26, new ItemStack(Material.ACACIA_SAPLING, 16));
-                player.getInventory().setItem(31, new ItemBuilder("§9§lStarter Rüstung", Material.IRON_LEGGINGS, 1, PROTECTION_ENVIRONMENTAL, 2).build());
+                player.getInventory().setItem(31, new ItemBuilder("§9§lStarter Rüstung", Material.IRON_LEGGINGS, 1, Enchantment.PROTECTION_ENVIRONMENTAL, 2).build());
                 player.getInventory().setItem(0, new ItemStack(Material.BREAD, 64));
                 player.getInventory().setItem(1, new ItemStack(Material.COOKED_BEEF, 64));
-                player.getInventory().setItem(2, new ItemBuilder("§9§lStarter Schwert", Material.IRON_SWORD, 1, DAMAGE_ALL, 2).build());
-                player.getInventory().setItem(4, new ItemBuilder("§9§lStarter Rüstung", Material.IRON_BOOTS, 1, PROTECTION_ENVIRONMENTAL, 2).build());
-                player.getInventory().setItem(6, new ItemBuilder("§9§lStarter Schaufel", Material.IRON_SHOVEL, 1, DIG_SPEED, 2).build());
-                player.getInventory().setItem(7, new ItemBuilder("§9§lStarter Axt", Material.IRON_AXE, 1, DIG_SPEED, 2).build());
-                player.getInventory().setItem(8, new ItemBuilder("§9§lStarter Spitzhacke", Material.IRON_PICKAXE, 1, DIG_SPEED, 2).build());
+                player.getInventory().setItem(2, new ItemBuilder("§9§lStarter Schwert", Material.IRON_SWORD, 1, Enchantment.DAMAGE_ALL, 2).build());
+                player.getInventory().setItem(4, new ItemBuilder("§9§lStarter Rüstung", Material.IRON_BOOTS, 1, Enchantment.PROTECTION_ENVIRONMENTAL, 2).build());
+                player.getInventory().setItem(6, new ItemBuilder("§9§lStarter Schaufel", Material.IRON_SHOVEL, 1, Enchantment.DIG_SPEED, 2).build());
+                player.getInventory().setItem(7, new ItemBuilder("§9§lStarter Axt", Material.IRON_AXE, 1, Enchantment.DIG_SPEED, 2).build());
+                player.getInventory().setItem(8, new ItemBuilder("§9§lStarter Spitzhacke", Material.IRON_PICKAXE, 1, Enchantment.DIG_SPEED, 2).build());
                 player.getInventory().setItem(12, new ItemStack(Material.WARPED_STEM, 16));
                 player.getInventory().setItem(14, new ItemStack(Material.CRIMSON_STEM, 16));
                 player.getInventory().setItem(27, new ItemStack(Material.CHEST, 4));
@@ -105,6 +101,11 @@ public class JoinListener implements Listener {
         }
     }
 
+    @EventHandler
+    public void afterJoin(PlayerLoginEvent e) {
+        if (!e.getPlayer().hasPlayedBefore())
+            e.getPlayer().teleport(new WarpManager("SPAWN").getWarp());
+    }
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
         if (VanishCMD.VANISHED.contains(event.getPlayer()))

@@ -49,6 +49,8 @@ public class SpeedCMD implements CommandExecutor {
                 ((Player) c).setWalkSpeed((float) speed);
             }
         } else if (args.length == 2) {
+            if (!c.hasPermission(servername + ".Speed.other"))
+                return true;
             if (!isInteger(args[0])) {
                 c.sendMessage(prefix + "Du musst eine Zahl angeben.");
                 return true;
@@ -65,11 +67,11 @@ public class SpeedCMD implements CommandExecutor {
             }
             if (t.isFlying()) {
                 c.sendMessage(prefix + "Du hast den Fly-Speed von §b" + t.getName() + " §7auf §b" + args[0] + " §7gesetzt.");
-                t.sendMessage(prefix + "Dein Fly-Speed wurde von §b" + SENDER + " §7zu §b" + args[0] + "§7gesetzt.");
+                t.sendMessage(prefix + "Dein Fly-Speed wurde von §b" + SENDER + " §7zu §b" + args[0] + " §7gesetzt.");
                 t.setFlySpeed((float) speed);
             } else {
                 c.sendMessage(prefix + "Du hast den Walk-Speed von §b" + t.getName() + " §7auf §b" + args[0] + " §7gesetzt.");
-                t.sendMessage(prefix + "Dein Walk-Speed wurde von §b" + SENDER + " §7zu §b" + args[0] + "§7gesetzt.");
+                t.sendMessage(prefix + "Dein Walk-Speed wurde von §b" + SENDER + " §7zu §b" + args[0] + " §7gesetzt.");
                 t.setWalkSpeed((float) speed);
             }
         } else {

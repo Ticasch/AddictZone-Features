@@ -1,6 +1,5 @@
 package net.tiam.addictzone_features.commands;
 
-import com.sun.tools.jdi.Packet;
 import net.tiam.addictzone_features.MainClass;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
