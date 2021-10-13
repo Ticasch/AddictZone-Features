@@ -89,45 +89,11 @@
     </repositories>
 
     <dependencies>
-        <!-- PlotSquared Core API -->
-        <dependency>
-            <groupId>com.plotsquared</groupId>
-            <artifactId>PlotSquared-Core</artifactId>
-            <version>6.1.2</version>
-            <scope>provided</scope>
-            <type>pom</type>
-        </dependency>
-
-        <!-- PlotSquared Bukkit API -->
-        <dependency>
-            <groupId>com.plotsquared</groupId>
-            <artifactId>PlotSquared-Bukkit</artifactId>
-            <version>6.1.2</version>
-            <scope>provided</scope>
-            <type>pom</type>
-            <exclusions>
-                <exclusion>
-                    <artifactId>PlotSquared-Core</artifactId>
-                    <groupId>*</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>net.luckperms</groupId>
-            <artifactId>api</artifactId>
-            <version>5.3</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>com.destroystokyo.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.tr7zw</groupId>
-            <artifactId>Item-NBT-API</artifactId>
-            <version>2.8.0</version>
         </dependency>
     </dependencies>
 </project>

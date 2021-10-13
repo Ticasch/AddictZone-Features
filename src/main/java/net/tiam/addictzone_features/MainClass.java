@@ -1,5 +1,6 @@
 package net.tiam.addictzone_features;
 
+import com.plotsquared.core.PlotAPI;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.tiam.addictzone_features.commands.*;
@@ -100,6 +101,7 @@ public final class MainClass extends JavaPlugin {
         getCommand("wb").setExecutor(new WbCMD());
         getCommand("perk").setExecutor(new PerkCMD());
        // Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
+        new PlotListener(new PlotAPI());
         Bukkit.getPluginManager().registerEvents(new PrefixListener(), this);
         Bukkit.getPluginManager().registerEvents(new PerksListener(), this);
         Bukkit.getPluginManager().registerEvents(new CommandPreProcessListener(), this);

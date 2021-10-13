@@ -27,9 +27,9 @@ public class PerksListener implements Listener {
             if (e.getClickedInventory() == null)
                 return;
             ItemStack clickedStack = e.getCurrentItem();
+            e.setCancelled(true);
             if (clickedStack == null)
                 return;
-            e.setCancelled(true);
             if (!clickedStack.hasItemMeta())
                 return;
             NBTItem nbtItem = new NBTItem(clickedStack);
@@ -91,35 +91,4 @@ public class PerksListener implements Listener {
             if (e.getEntity().isInWater())
                 e.setCancelled(true);
     }
-    /*@EventHandler
-    public void onEnter(PlayerEnterPlotEvent e) {
-        Player p = (Player) e.getPlotPlayer();
-        Plot plot = e.getPlot();
-        PerkManager.Perk perk = PerkManager.Perk.Plot_Fly;
-        PerkManager manager = new PerkManager(p.getUniqueId().toString());
-        if (manager.getPerkStatus(perk)) {
-            if (plot.getOwners().contains(p.getUniqueId()) || plot.getTrusted().contains(p.getUniqueId()) || plot.getMembers().contains(p.getUniqueId())) {
-                if (!p.hasPermission("AddictZone.Perk.Plot-Fly.bypass")) {
-                    p.sendMessage(prefix + "Plot-Fly aktiviert.");
-                    p.setAllowFlight(true);
-                    p.setFlying(true);
-                }
-            }
-        }
-    }
-    @EventHandler
-    public void onLeave(PlayerLeavePlotEvent e) {
-        Player p = (Player) e.getPlotPlayer();
-        Plot plot = e.getPlot();
-        PerkManager.Perk perk = PerkManager.Perk.Plot_Fly;
-        PerkManager manager = new PerkManager(p.getUniqueId().toString());
-        if (manager.getPerkStatus(perk)) {
-            if (plot.getOwners().contains(p.getUniqueId()) || plot.getTrusted().contains(p.getUniqueId()) || plot.getMembers().contains(p.getUniqueId())) {
-                if (!p.hasPermission("AddictZone.Perk.Plot-Fly.bypass")) {
-                    p.sendMessage(prefix + "Plot-Fly deaktiviert.");
-                    p.setAllowFlight(false);
-                }
-            }
-        }
-    } */
 }

@@ -4,7 +4,6 @@ import de.tr7zw.nbtapi.NBTItem;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.tiam.addictzone_features.MainClass;
-import net.tiam.addictzone_features.managers.PerkManager;
 import net.tiam.addictzone_features.managers.PrefixColorGroupManager;
 import net.tiam.addictzone_features.managers.PrefixColorManager;
 import net.tiam.addictzone_features.managers.PrefixManager;
@@ -21,7 +20,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.checkerframework.checker.units.qual.N;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
@@ -100,7 +98,7 @@ public class PrefixCMD implements CommandExecutor {
         purpleStack.setItemMeta(purpleMeta);
         ItemStack goldStack = new ItemBuilder("§6§lOrange", Material.ORANGE_CONCRETE, 1).build();
         ItemMeta goldMeta = goldStack.getItemMeta();
-        goldMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du änderst deine Prefixfarbe zu §bViolett§7.", "", statusString(p, servername + ".Prefix." + PrefixManager.Prefix.GOLD.getName(), manager.getPrefixStatus(p.getUniqueId().toString(), PrefixManager.Prefix.GOLD.getColor()))}));
+        goldMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du änderst deine Prefixfarbe zu §bOrange§7.", "", statusString(p, servername + ".Prefix." + PrefixManager.Prefix.GOLD.getName(), manager.getPrefixStatus(p.getUniqueId().toString(), PrefixManager.Prefix.GOLD.getColor()))}));
         if (manager.getPrefixStatus(p.getUniqueId().toString(), PrefixManager.Prefix.GOLD.getColor())) {
             goldMeta.addEnchant(Enchantment.LURE, 0, true);
             goldMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
@@ -108,7 +106,7 @@ public class PrefixCMD implements CommandExecutor {
         goldStack.setItemMeta(goldMeta);
         ItemStack grayStack = new ItemBuilder("§7§lHellgrau", Material.LIGHT_GRAY_CONCRETE, 1).build();
         ItemMeta grayMeta = grayStack.getItemMeta();
-        grayMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du änderst deine Prefixfarbe zu §bViolett§7.", "", statusString(p, servername + ".Prefix." + PrefixManager.Prefix.GRAY.getName(), manager.getPrefixStatus(p.getUniqueId().toString(), PrefixManager.Prefix.GRAY.getColor()))}));
+        grayMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du änderst deine Prefixfarbe zu §bHellgrau§7.", "", statusString(p, servername + ".Prefix." + PrefixManager.Prefix.GRAY.getName(), manager.getPrefixStatus(p.getUniqueId().toString(), PrefixManager.Prefix.GRAY.getColor()))}));
         if (manager.getPrefixStatus(p.getUniqueId().toString(), PrefixManager.Prefix.GRAY.getColor())) {
             grayMeta.addEnchant(Enchantment.LURE, 0, true);
             grayMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
@@ -231,7 +229,7 @@ public class PrefixCMD implements CommandExecutor {
         }
         whiteStack.setItemMeta(whiteMeta);
         ItemStack closeStack = new ItemBuilder("§4Schließen", Material.BARRIER, 1).build();
-        ItemStack pageStack = new ItemBuilder("§9Nächste Seite", Material.MAP, 1).build();
+        ItemStack pageStack = new ItemBuilder("§9Vorherige Seite", Material.MAP, 1).build();
         ItemStack defaultStack = new ItemBuilder("§bStandart", Material.NETHER_STAR, 1).build();
         ItemMeta defaultMeta = defaultStack.getItemMeta();
         String defaultPrefix = new PrefixColorGroupManager(this.luckPerms.getUserManager().getUser(p.getUniqueId()).getPrimaryGroup()).getTabGroupColor();

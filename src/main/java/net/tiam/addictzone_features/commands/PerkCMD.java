@@ -48,58 +48,58 @@ public class PerkCMD implements CommandExecutor {
         PerkManager manager = new PerkManager(p.getUniqueId().toString());
         ItemStack keep_InvStack = new ItemBuilder("§c§lKeep-Inventory", Material.ENDER_CHEST, 1).build();
         ItemMeta keep_InvMeta = keep_InvStack.getItemMeta();
-        keep_InvMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du verlierst beim Tod keine Items.", "", statusString(p, PerkManager.Perk.Keep_Inventory.getPerm(), manager.getPerkStatus(PerkManager.Perk.Keep_Inventory))}));
+        keep_InvMeta.setLore(Arrays.asList("", "§7➥ Du verlierst beim Tod keine Items.", "", statusString(p, PerkManager.Perk.Keep_Inventory.getPerm(), manager.getPerkStatus(PerkManager.Perk.Keep_Inventory))));
         if (manager.getPerkStatus(PerkManager.Perk.Keep_Inventory)) {
             keep_InvMeta.addEnchant(Enchantment.LURE, 0, true);
-            keep_InvMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            keep_InvMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         keep_InvStack.setItemMeta(keep_InvMeta);
         ItemStack keep_XpStack = new ItemBuilder("§c§lKeep-XP", Material.EXPERIENCE_BOTTLE, 1).build();
         ItemMeta keep_XpMeta = keep_XpStack.getItemMeta();
-        keep_XpMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du verlierst beim Tod keine XP.", "", statusString(p, PerkManager.Perk.Keep_XP.getPerm(), manager.getPerkStatus(PerkManager.Perk.Keep_XP))}));
+        keep_XpMeta.setLore(Arrays.asList("", "§7➥ Du verlierst beim Tod keine XP.", "", statusString(p, PerkManager.Perk.Keep_XP.getPerm(), manager.getPerkStatus(PerkManager.Perk.Keep_XP))));
         if (manager.getPerkStatus(PerkManager.Perk.Keep_XP)) {
             keep_XpMeta.addEnchant(Enchantment.LURE, 0, true);
-            keep_XpMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            keep_XpMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         keep_XpStack.setItemMeta(keep_XpMeta);
         ItemStack eileStack = new ItemBuilder("§c§lEile", Material.GOLDEN_PICKAXE, 1).build();
         ItemMeta eileMeta = eileStack.getItemMeta();
-        eileMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cEile §b5 §7Effekt.", "", statusString(p, PerkManager.Perk.Eile.getPerm(), manager.getPerkStatus(PerkManager.Perk.Eile))}));
+        eileMeta.setLore(Arrays.asList("", "§7➥ Du erhältst den §cEile §b5 §7Effekt.", "", statusString(p, PerkManager.Perk.Eile.getPerm(), manager.getPerkStatus(PerkManager.Perk.Eile))));
         if (manager.getPerkStatus(PerkManager.Perk.Eile)) {
             eileMeta.addEnchant(Enchantment.LURE, 0, true);
-            eileMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            eileMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         eileStack.setItemMeta(eileMeta);
         ItemStack stärkeStack = new ItemBuilder("§c§lStärke", Material.DIAMOND_AXE, 1).build();
         ItemMeta stärkeMeta = stärkeStack.getItemMeta();
-        stärkeMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cStärke §b2 §7Effekt.", "", statusString(p, PerkManager.Perk.Stärke.getPerm(), manager.getPerkStatus(PerkManager.Perk.Stärke))}));
+        stärkeMeta.setLore(Arrays.asList("", "§7➥ Du erhältst den §cStärke §b2 §7Effekt.", "", statusString(p, PerkManager.Perk.Stärke.getPerm(), manager.getPerkStatus(PerkManager.Perk.Stärke))));
         if (manager.getPerkStatus(PerkManager.Perk.Stärke)) {
             stärkeMeta.addEnchant(Enchantment.LURE, 0, true);
-            stärkeMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            stärkeMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         stärkeStack.setItemMeta(stärkeMeta);
         ItemStack heilungStack = new ItemBuilder("§c§lHeilung", Material.GOLDEN_APPLE, 1).build();
         ItemMeta heilungMeta = heilungStack.getItemMeta();
-        heilungMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cRegeneration §b2 §7Effekt.", "", statusString(p, PerkManager.Perk.Heilung.getPerm(), manager.getPerkStatus(PerkManager.Perk.Heilung))}));
+        heilungMeta.setLore(Arrays.asList("", "§7➥ Du erhältst den §cRegeneration §b2 §7Effekt.", "", statusString(p, PerkManager.Perk.Heilung.getPerm(), manager.getPerkStatus(PerkManager.Perk.Heilung))));
         if (manager.getPerkStatus(PerkManager.Perk.Heilung)) {
             heilungMeta.addEnchant(Enchantment.LURE, 0, true);
-            heilungMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            heilungMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         heilungStack.setItemMeta(heilungMeta);
         ItemStack kein_HungerStack = new ItemBuilder("§c§lKein Hunger", Material.GOLDEN_CARROT, 1).build();
         ItemMeta kein_HungerMeta = kein_HungerStack.getItemMeta();
-        kein_HungerMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du verlierst keinen Hunger mehr.", "", statusString(p, PerkManager.Perk.Kein_Hunger.getPerm(), manager.getPerkStatus(PerkManager.Perk.Kein_Hunger))}));
+        kein_HungerMeta.setLore(Arrays.asList("", "§7➥ Du verlierst keinen Hunger mehr.", "", statusString(p, PerkManager.Perk.Kein_Hunger.getPerm(), manager.getPerkStatus(PerkManager.Perk.Kein_Hunger))));
         if (manager.getPerkStatus(PerkManager.Perk.Kein_Hunger)) {
             kein_HungerMeta.addEnchant(Enchantment.LURE, 0, true);
-            kein_HungerMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            kein_HungerMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         kein_HungerStack.setItemMeta(kein_HungerMeta);
         ItemStack plot_FlyStack = new ItemBuilder("§c§lPlot-Fly", Material.FEATHER, 1).build();
         ItemMeta plot_FlyMeta = plot_FlyStack.getItemMeta();
-        plot_FlyMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du kannst auf Plots, auf denen du Rechte hast, fliegen!", "", statusString(p, PerkManager.Perk.Plot_Fly.getPerm(), manager.getPerkStatus(PerkManager.Perk.Plot_Fly))}));
+        plot_FlyMeta.setLore(Arrays.asList("", "§7➥ Du kannst auf Plots, auf denen du Rechte hast, fliegen!", "", statusString(p, PerkManager.Perk.Plot_Fly.getPerm(), manager.getPerkStatus(PerkManager.Perk.Plot_Fly))));
         if (manager.getPerkStatus(PerkManager.Perk.Plot_Fly)) {
             plot_FlyMeta.addEnchant(Enchantment.LURE, 0, true);
-            plot_FlyMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            plot_FlyMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         plot_FlyStack.setItemMeta(plot_FlyMeta);
         ItemStack closeStack = new ItemBuilder("§4Schließen", Material.BARRIER, 1).build();
@@ -146,58 +146,58 @@ public class PerkCMD implements CommandExecutor {
             inv.setItem(i, placeHolderStack);
         ItemStack speedStack = new ItemBuilder("§c§lSpeed", Material.SUGAR, 1).build();
         ItemMeta speedMeta = speedStack.getItemMeta();
-        speedMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cSnelligkeit §b2 §7Effekt.", "", statusString(p, PerkManager.Perk.Speed.getPerm(), manager.getPerkStatus(PerkManager.Perk.Speed))}));
+        speedMeta.setLore(Arrays.asList("", "§7➥ Du erhältst den §cSnelligkeit §b2 §7Effekt.", "", statusString(p, PerkManager.Perk.Speed.getPerm(), manager.getPerkStatus(PerkManager.Perk.Speed))));
         if (manager.getPerkStatus(PerkManager.Perk.Speed)) {
             speedMeta.addEnchant(Enchantment.LURE, 0, true);
-            speedMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            speedMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         speedStack.setItemMeta(speedMeta);
         ItemStack taucherStack = new ItemBuilder("§c§lTaucher", Material.TRIDENT, 1).build();
         ItemMeta taucherMeta = taucherStack.getItemMeta();
-        taucherMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cGunst des Delfins §7Effekt.", "", statusString(p, PerkManager.Perk.Taucher.getPerm(), manager.getPerkStatus(PerkManager.Perk.Taucher))}));
+        taucherMeta.setLore(Arrays.asList("", "§7➥ Du erhältst den §cGunst des Delfins §7Effekt.", "", statusString(p, PerkManager.Perk.Taucher.getPerm(), manager.getPerkStatus(PerkManager.Perk.Taucher))));
         if (manager.getPerkStatus(PerkManager.Perk.Taucher)) {
             taucherMeta.addEnchant(Enchantment.LURE, 0, true);
-            taucherMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            taucherMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         taucherStack.setItemMeta(taucherMeta);
         ItemStack jumpStack = new ItemBuilder("§c§lSprungkraft", Material.RABBIT_FOOT, 1).build();
         ItemMeta jumpMeta = jumpStack.getItemMeta();
-        jumpMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cSprungkraft §b2 §7Effekt.", "", statusString(p, PerkManager.Perk.Sprungkraft.getPerm(), manager.getPerkStatus(PerkManager.Perk.Sprungkraft))}));
+        jumpMeta.setLore(Arrays.asList("", "§7➥ Du erhältst den §cSprungkraft §b2 §7Effekt.", "", statusString(p, PerkManager.Perk.Sprungkraft.getPerm(), manager.getPerkStatus(PerkManager.Perk.Sprungkraft))));
         if (manager.getPerkStatus(PerkManager.Perk.Sprungkraft)) {
             jumpMeta.addEnchant(Enchantment.LURE, 0, true);
-            jumpMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            jumpMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         jumpStack.setItemMeta(jumpMeta);
         ItemStack glowStack = new ItemBuilder("§c§lGlow", Material.GLOWSTONE_DUST, 1).build();
         ItemMeta glowMeta = glowStack.getItemMeta();
-        glowMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cLeuchten §7Effekt.", "", statusString(p, PerkManager.Perk.Glow.getPerm(), manager.getPerkStatus(PerkManager.Perk.Glow))}));
+        glowMeta.setLore(Arrays.asList("", "§7➥ Du erhältst den §cLeuchten §7Effekt.", "", statusString(p, PerkManager.Perk.Glow.getPerm(), manager.getPerkStatus(PerkManager.Perk.Glow))));
         if (manager.getPerkStatus(PerkManager.Perk.Glow)) {
             glowMeta.addEnchant(Enchantment.LURE, 0, true);
-            glowMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            glowMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         glowStack.setItemMeta(glowMeta);
         ItemStack feuerSchutzStack = new ItemBuilder("§c§lFeuerschutz", Material.LAVA_BUCKET, 1).build();
         ItemMeta feuerSchutzMeta = feuerSchutzStack.getItemMeta();
-        feuerSchutzMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhlätst den §cFeuerresistenz §7Effekt.", "", statusString(p, PerkManager.Perk.Feuerschutz.getPerm(), manager.getPerkStatus(PerkManager.Perk.Feuerschutz))}));
+        feuerSchutzMeta.setLore(Arrays.asList("", "§7➥ Du erhlätst den §cFeuerresistenz §7Effekt.", "", statusString(p, PerkManager.Perk.Feuerschutz.getPerm(), manager.getPerkStatus(PerkManager.Perk.Feuerschutz))));
         if (manager.getPerkStatus(PerkManager.Perk.Feuerschutz)) {
             feuerSchutzMeta.addEnchant(Enchantment.LURE, 0, true);
-            feuerSchutzMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            feuerSchutzMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         feuerSchutzStack.setItemMeta(feuerSchutzMeta);
         ItemStack nightStack = new ItemBuilder("§c§lNachtsicht", Material.ENDER_EYE, 1).build();
         ItemMeta nightMeta = nightStack.getItemMeta();
-        nightMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du erhältst den §cNachtsicht §7Effekt.", "", statusString(p, PerkManager.Perk.Nachtsicht.getPerm(), manager.getPerkStatus(PerkManager.Perk.Nachtsicht))}));
+        nightMeta.setLore(Arrays.asList("", "§7➥ Du erhältst den §cNachtsicht §7Effekt.", "", statusString(p, PerkManager.Perk.Nachtsicht.getPerm(), manager.getPerkStatus(PerkManager.Perk.Nachtsicht))));
         if (manager.getPerkStatus(PerkManager.Perk.Nachtsicht)) {
             nightMeta.addEnchant(Enchantment.LURE, 0, true);
-            nightMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            nightMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         nightStack.setItemMeta(nightMeta);
         ItemStack atmungStack = new ItemBuilder("§c§lAtmung", Material.WATER_BUCKET, 1).build();
         ItemMeta atmungMeta = atmungStack.getItemMeta();
-        atmungMeta.setLore(Arrays.asList(new String[] { "", "§7➥ Du kannst unterwasser atmen.", "", statusString(p, PerkManager.Perk.Atmung.getPerm(), manager.getPerkStatus(PerkManager.Perk.Atmung))}));
+        atmungMeta.setLore(Arrays.asList("", "§7➥ Du kannst unterwasser atmen.", "", statusString(p, PerkManager.Perk.Atmung.getPerm(), manager.getPerkStatus(PerkManager.Perk.Atmung))));
         if (manager.getPerkStatus(PerkManager.Perk.Atmung)) {
             atmungMeta.addEnchant(Enchantment.LURE, 0, true);
-            atmungMeta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS } );
+            atmungMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         atmungStack.setItemMeta(atmungMeta);
         ItemStack closeStack = new ItemBuilder("§4Schließen", Material.BARRIER, 1).build();
